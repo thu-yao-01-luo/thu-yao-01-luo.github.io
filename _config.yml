@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Kairong Luo / OpenHonor"
+title                    : "Kairong Luo / 罗开荣"
 title_separator          : "-"
 name                     : &name "Kairong Luo"
 description              : &description "personal description"
@@ -22,7 +22,7 @@ repository               : "https://thu-yao-01-luo.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile1.jpeg"
   name             : "Kairong Luo"
   pronouns         : # example: "she/her"  
   bio              : "1st year Phd student at Tsinghua University"
