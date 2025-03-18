@@ -1,13 +1,12 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "About Me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-## About Me
 I am a first-year Ph.D. student in the Department of Computer Science and Technology at Tsinghua University, fortunate to be advised by [Prof. Wenguang Chen](https://pacman.cs.tsinghua.edu.cn/~cwg/) in the [PACMAN Lab](https://github.com/thu-pacman). My research focuses on **Efficient Scaling of Large Language Models**, with particular interest in pretraining Scaling Laws, to understand and optimize the relationship between model performance and training dynamics. I am fortunate to collaborate with [Kaifeng Lyu](https://kaifeng.ac/) and [Shengding Hu](https://shengdinghu.github.io/).
 
 <!--
