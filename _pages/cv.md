@@ -21,22 +21,12 @@ redirect_from:
    - **Accepted by ICLR 2025** (March 2025)  
    - [arXiv preprint](https://arxiv.org/abs/2503.12811)  
    - **Summary**: This paper introduces an empirical law to predict the pretraining loss of large language models under various learning rate schedules (e.g., constant, cosine, step decay). The proposed multi-power law combines a power law based on the sum of learning rates with additional terms to account for loss reduction due to learning rate decay. Validated across multiple model sizes and architectures, this law accurately predicts loss curves for unseen schedules and helps identify optimal schedules that outperform widely used ones like cosine. The findings provide insights into pretraining dynamics and learning rate schedule design. The automatically discovered schedule resembles the Warmup-Stable-Decay (WSD) schedule but achieves slightly better performance.  
-<!--
-   - **Annotations**:  
-     - \*: First author  
-     - \†: Corresponding author  
--->
 
 2. **DreamFuser: Value-guided Diffusion Policy for Offline Reinforcement Learning**  
    ***Kairong Luo\*, Caiwei Xiao\***, Zhiao Huang, Zhan Ling, Yunhao Fang, Hao Su†*  
    - **Status**: Preprint / Under Review (November 2023)  
    - [OpenReview](https://openreview.net/forum?id=9jmUwjZi7j)  
    - **Summary**: DreamFuser is a trajectory-based value optimization approach that integrates diffusion-based trajectory learning with efficient Q-function learning. It addresses computational challenges in action sampling during training by leveraging the Generalized Noisy Action Markov Decision Process (GNMDP), which treats the diffusion denoising process as part of the MDP transition. Empirical results show DreamFuser outperforms existing diffusion policy algorithms, particularly in low-level control tasks, and matches or exceeds state-of-the-art methods on the D4RL benchmark. The work also highlights the computational and memory advantages of DreamFuser over traditional MDP-based diffusion policies.  
-<!--   
-  - **Annotations**:  
-     - \*: Equal contribution (co-first authors)  
-     - \†: Corresponding author  
--->
 
 <!-- 
 ## Talks
