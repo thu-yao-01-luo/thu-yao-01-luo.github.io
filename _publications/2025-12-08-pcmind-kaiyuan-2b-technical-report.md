@@ -6,10 +6,26 @@ permalink: /publication/pcmind-kaiyuan-2b-technical-report
 excerpt: "A fully open 2B language model released together with model weights, dataset, data preprocessing pipeline, and training framework."
 date: 2025-12-08
 venue: "Technical Report"
+authors: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, Wenguang Chen"
+highlight: "Technical Report"
+summary: "A fully open 2B language model released together with model weights, dataset, data preprocessing pipeline, and training framework."
+links:
+  - label: "Technical Report"
+    url: "https://arxiv.org/abs/2512.07612"
+  - label: "Model"
+    url: "https://huggingface.co/thu-pacman/PCMind-2.1-Kaiyuan-2B"
+  - label: "Dataset"
+    url: "https://huggingface.co/datasets/thu-pacman/PCMind-2.1-Kaiyuan-2B"
+  - label: "Kaiyuan-Spark"
+    url: "https://github.com/thu-pacman/Kaiyuan-Spark"
+  - label: "kaiyuan-mindformers"
+    url: "https://github.com/thu-pacman/kaiyuan-mindformers/tree/kaiyuan"
 paperurl: "https://arxiv.org/pdf/2512.07612"
 citation: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, and Wenguang Chen. (2025). &quot;PCMind-2.1-Kaiyuan-2B Technical Report.&quot; <i>Technical Report</i>."
 header:
   teaser: research/kaiyuan-2b-performance.svg
+featured: true
+featured_order: 2
 ---
 
 - [Technical Report](https://arxiv.org/abs/2512.07612)
