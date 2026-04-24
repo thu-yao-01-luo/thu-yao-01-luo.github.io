@@ -51,18 +51,21 @@
 
 /* Edit these two values if you want to change the publication figure size. */
 :root {
-  --publication-figure-width: 220px;
+  --publication-figure-width: 20%;
   --publication-figure-height: 150px;
 }
 
 .publication-card {
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
   padding: 1.1rem;
   border: 1px solid var(--global-border-color);
   border-radius: 14px;
   background: #fff;
+}
+
+.publication-card__content {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
 }
 
 .publication-card + .publication-card {
@@ -104,7 +107,7 @@
 }
 
 .publication-card__title {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.85rem;
   line-height: 1.25;
   font-size: 1.45rem;
   font-weight: 700;
@@ -171,7 +174,7 @@
 }
 
 @media (max-width: 900px) {
-  .publication-card {
+  .publication-card__content {
     flex-direction: column;
   }
 

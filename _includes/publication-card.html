@@ -4,21 +4,22 @@
 {% endif %}
 
 <article class="publication-card">
-  {% if teaser %}
-    <div class="publication-card__media">
-      <a href="{{ base_path }}{{ post.url }}" aria-label="{{ post.title }}">
-        <img
-          src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | prepend: base_path }}{% endif %}"
-          alt="{{ post.title }}">
-      </a>
-    </div>
-  {% endif %}
+  <h3 class="publication-card__title">
+    <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
+  </h3>
 
-  <div class="publication-card__body">
-    <h3 class="publication-card__title">
-      <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
-    </h3>
+  <div class="publication-card__content">
+    {% if teaser %}
+      <div class="publication-card__media">
+        <a href="{{ base_path }}{{ post.url }}" aria-label="{{ post.title }}">
+          <img
+            src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | prepend: base_path }}{% endif %}"
+            alt="{{ post.title }}">
+        </a>
+      </div>
+    {% endif %}
 
+    <div class="publication-card__body">
     {% if post.authors %}
       <p class="publication-card__authors">{{ post.authors }}</p>
     {% endif %}
@@ -45,5 +46,6 @@
         <a class="publication-card__link" href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">Paper</a>
       </div>
     {% endif %}
+    </div>
   </div>
 </article>
