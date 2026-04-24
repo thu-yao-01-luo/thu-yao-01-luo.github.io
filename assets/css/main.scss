@@ -49,6 +49,12 @@
   margin: 1.25rem 0 2rem;
 }
 
+/* Edit these two values if you want to change the publication figure size. */
+:root {
+  --publication-figure-width: 220px;
+  --publication-figure-height: 150px;
+}
+
 .publication-card {
   display: flex;
   gap: 1.25rem;
@@ -59,9 +65,22 @@
   background: #fff;
 }
 
+.publication-card + .publication-card {
+  position: relative;
+}
+
+.publication-card + .publication-card::before {
+  content: "";
+  position: absolute;
+  top: -0.85rem;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed rgba(15, 23, 42, 0.18);
+}
+
 .publication-card__media {
-  flex: 0 0 220px;
-  max-width: 220px;
+  flex: 0 0 var(--publication-figure-width);
+  max-width: var(--publication-figure-width);
 }
 
 .publication-card__media a {
@@ -72,7 +91,7 @@
 .publication-card__media img {
   display: block;
   width: 100%;
-  max-height: 180px;
+  height: var(--publication-figure-height);
   object-fit: contain;
   border: 1px solid var(--global-border-color);
   border-radius: 10px;
@@ -87,6 +106,9 @@
 .publication-card__title {
   margin: 0 0 0.35rem;
   line-height: 1.25;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
 }
 
 .publication-card__title a {
@@ -101,15 +123,29 @@
   margin: 0 0 0.45rem;
   color: var(--global-text-color-light);
   font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.55;
 }
 
 .publication-card__meta {
-  margin: 0 0 0.7rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 0.8rem;
+  padding: 0.28rem 0.72rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  color: #1e3a8a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .publication-card__summary {
   margin: 0 0 0.9rem;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 .publication-card__links {
@@ -146,6 +182,6 @@
   }
 
   .publication-card__media img {
-    max-height: 260px;
+    height: 220px;
   }
 }

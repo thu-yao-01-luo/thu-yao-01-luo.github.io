@@ -14,6 +14,8 @@ links:
     url: "https://openreview.net/forum?id=9jmUwjZi7j"
 paperurl: "https://openreview.net/pdf?id=9jmUwjZi7j"
 citation: "Kairong Luo, Caiwei Xiao, Zhiao Huang, Zhan Ling, Yunhao Fang, and Hao Su. (2023). &quot;DreamFuser: Value-guided Diffusion Policy for Offline Reinforcement Learning.&quot; <i>Preprint / Under Review</i>."
+header:
+  teaser: research/dreamfuser-summary.png
 ---
 
 - [OpenReview](https://openreview.net/forum?id=9jmUwjZi7j)
