@@ -4,7 +4,7 @@
     "email": "luokr2002@outlook.com",
     "phone": "",
     "website": "https://kairong.me",
-    "summary": "Second-year Ph.D. student at Tsinghua University working on scaling of language models, efficient training, open-source pretraining, and pretraining dynamics.",
+    "summary": "Third-year Ph.D. student at Tsinghua University working on scaling of language models, efficient training, open-source pretraining, and pretraining dynamics.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -18,7 +18,7 @@
   "education": [
     {
       "institution": "Tsinghua University",
-      "area": "Ph.D. in Department of Computer Science and Technology",
+      "area": "Third-year Ph.D. student in Department of Computer Science and Technology",
       "studyType": "",
       "startDate": "2024",
       "endDate": "2029 (expected)",
@@ -53,6 +53,20 @@
   "references": [],
   "publications": [
     {
+      "name": "Puro-2B: Poor Lab's Qwen2-1.5B Trained on RTX 5090 within $5090",
+      "publisher": "Technical Report",
+      "releaseDate": "2026-08-27",
+      "website": "https://arxiv.org/abs/2608.27370",
+      "summary": "An open, cost-efficient recipe for pretraining 2B language models on consumer-grade RTX 5090 GPUs, with the full data, code, and model weights released under Apache 2.0."
+    },
+    {
+      "name": "RoBSA: RoPE-based Blockwise Sparse Multi-head Latent Attention",
+      "publisher": "ACL 2026 (Recommended as Oral)",
+      "releaseDate": "2026-07-01",
+      "website": "https://aclanthology.org/2026.acl-long.46/",
+      "summary": "My contributions were experiment analysis and assistance with paper writing."
+    },
+    {
       "name": "How Learning Rate Decay Wastes Your Best Data in Curriculum-Based LLM Pretraining",
       "publisher": "ICLR 2026 Oral Presentation (Top 1.2%)",
       "releaseDate": "2025-11-24",
@@ -64,7 +78,14 @@
       "publisher": "Technical Report",
       "releaseDate": "2025-12-08",
       "website": "https://arxiv.org/abs/2512.07612",
-      "summary": "Presents a fully open 2B language model and releases the complete stack around it, including model weights, dataset, preprocessing framework, and training framework."
+      "summary": "Presents a fully open 2B language model and releases the complete stack around it, including model weights, dataset, preprocessing framework, and training framework. Its derived submission, Quantile Benchmarking Heterogeneous Web Corpora in Open LLM Pretraining, was selected as a NeurIPS 2026 Spotlight (Top 1.3%)."
+    },
+    {
+      "name": "Larger Datasets Can Be Repeated More: A Theoretical Analysis of Multi-Epoch Scaling in Linear Regression",
+      "publisher": "Experimental part",
+      "releaseDate": "2025-11-17",
+      "website": "https://openreview.net/forum?id=0CXjpAxHUE",
+      "summary": "My contribution was to the experimental part of the paper."
     },
     {
       "name": "A Multi-Power Law for Loss Curve Prediction Across Learning Rate Schedules",

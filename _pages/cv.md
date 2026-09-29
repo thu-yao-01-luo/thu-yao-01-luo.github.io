@@ -10,31 +10,49 @@ redirect_from:
 {% include base_path %}
 
 ## Education
-- **Ph.D. in Department of Computer Science and Technology**, Tsinghua University, 2024-2029 (expected)
+- **Third-year Ph.D. student in Department of Computer Science and Technology**, Tsinghua University, 2024-2029 (expected)
   - GPA: 4.0/4.0  
 - **B.S. in Institute for Interdisciplinary Information Sciences (IIIS)**, Tsinghua University, 2020-2024
   - GPA: 3.95/4.0, Rank: 9/79  
 
 ## Publications
-1. **How Learning Rate Decay Wastes Your Best Data in Curriculum-Based LLM Pretraining**
+1. **Puro-2B: Poor Lab's Qwen2-1.5B Trained on RTX 5090 within $5090**
+   *Kairong Luo, Jiarui Cui, Yaorui Yin, Shengqi Chen, Yiming Yang, Linxiang Gao, Yanmohan Wang, Chengxia Li, Mingzhe Zhang, Kaifeng Lyu, Wenguang Chen*
+   - **Technical Report** (August 2026)
+   - Links: [arXiv](https://arxiv.org/abs/2608.27370)
+   - **Summary**: This report presents an open, cost-efficient recipe for pretraining 2B language models on consumer-grade RTX 5090 GPUs and releases the training data, code, and model weights.
+
+2. **RoBSA: RoPE-based Blockwise Sparse Multi-head Latent Attention**
+   *Xinyu Shi, Kairong Luo, Zhen Zheng, Wenguang Chen*
+   - **Recommended as Oral**, ACL 2026 (July 2026)
+   - **My contributions**: experiment analysis; assistance with paper writing
+   - Links: [ACL Anthology](https://aclanthology.org/2026.acl-long.46/)
+
+3. **How Learning Rate Decay Wastes Your Best Data in Curriculum-Based LLM Pretraining**
    *Kairong Luo, Zhenbo Sun, Haodong Wen, Xinyu Shi, Jiarui Cui, Chenyi Dang, Kaifeng Lyu, Wenguang Chen*
    - **Oral Presentation (Top 1.2%)**, ICLR 2026
    - Links: [OpenReview PDF](https://openreview.net/pdf?id=T5wkZJqzkz), [arXiv preprint](https://arxiv.org/abs/2511.18903)
    - **Summary**: This paper studies curriculum-based LLM pretraining under mixed-quality data and identifies a key mismatch between ascending-quality curricula and standard learning-rate decay. It shows that moderate LR decay and model averaging recover the gains of curriculum ordering, improving benchmark performance without extra data refinement.
 
-2. **PCMind-2.1-Kaiyuan-2B Technical Report**
+4. **PCMind-2.1-Kaiyuan-2B Technical Report**
    *Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, Wenguang Chen*
    - **Technical Report** (December 2025)
+   - **Derived submission**: [Quantile Benchmarking Heterogeneous Web Corpora in Open LLM Pretraining](https://openreview.net/forum?id=lwteHS4l8A), **NeurIPS 2026 Spotlight (Top 1.3%)**
    - Links: [Technical Report](https://arxiv.org/abs/2512.07612), [Model](https://huggingface.co/thu-pacman/PCMind-2.1-Kaiyuan-2B), [Dataset](https://huggingface.co/datasets/thu-pacman/PCMind-2.1-Kaiyuan-2B), [Kaiyuan-Spark](https://github.com/thu-pacman/Kaiyuan-Spark), [kaiyuan-mindformers](https://github.com/thu-pacman/kaiyuan-mindformers/tree/kaiyuan)
    - **Summary**: This work presents a fully open 2B language model and releases the complete stack around it, including weights, dataset, preprocessing framework, and training framework. The report emphasizes efficient and effective pretraining under resource constraints.
 
-3. **A Multi-Power Law for Loss Curve Prediction Across Learning Rate Schedules**
+5. **Larger Datasets Can Be Repeated More: A Theoretical Analysis of Multi-Epoch Scaling in Linear Regression**
+   *Tingkai Yan, Haodong Wen, Binghui Li, Kairong Luo, Wenguang Chen, Kaifeng Lyu*
+   - **My contribution**: experimental part
+   - Links: [OpenReview](https://openreview.net/forum?id=0CXjpAxHUE), [arXiv](https://arxiv.org/abs/2511.13421)
+
+6. **A Multi-Power Law for Loss Curve Prediction Across Learning Rate Schedules**
    *Kairong Luo, Haodong Wen, Shengding Hu, Zhenbo Sun, Zhiyuan Liu, Maosong Sun, Kaifeng Lyu, Wenguang Chen*
    - **Accepted by ICLR 2025** (March 2025)
    - Links: [arXiv preprint](https://arxiv.org/abs/2503.12811)
    - **Summary**: This paper introduces an empirical law to predict the pretraining loss of large language models under various learning rate schedules (e.g., constant, cosine, step decay). The proposed multi-power law combines a power law based on the sum of learning rates with additional terms to account for loss reduction due to learning rate decay. Validated across multiple model sizes and architectures, this law accurately predicts loss curves for unseen schedules and helps identify optimal schedules that outperform widely used ones like cosine. The findings provide insights into pretraining dynamics and learning rate schedule design. The automatically discovered schedule resembles the Warmup-Stable-Decay (WSD) schedule but achieves slightly better performance.
 
-4. **DreamFuser: Value-guided Diffusion Policy for Offline Reinforcement Learning**
+7. **DreamFuser: Value-guided Diffusion Policy for Offline Reinforcement Learning**
    *Kairong Luo, Caiwei Xiao, Zhiao Huang, Zhan Ling, Yunhao Fang, Hao Su*
    - **Preprint / Under Review** (November 2023)
    - Links: [OpenReview](https://openreview.net/forum?id=9jmUwjZi7j)

@@ -7,11 +7,13 @@ excerpt: "A fully open 2B language model released together with model weights, d
 date: 2025-12-08
 venue: "Technical Report"
 authors: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, Wenguang Chen"
-highlight: "Technical Report"
+highlight: "Technical Report; derived submission: NeurIPS 2026 Spotlight (Top 1.3%)"
 summary: "A fully open 2B language model released together with model weights, dataset, data preprocessing pipeline, and training framework."
 links:
   - label: "Technical Report"
     url: "https://arxiv.org/abs/2512.07612"
+  - label: "Derived submission (NeurIPS 2026 Spotlight)"
+    url: "https://openreview.net/forum?id=lwteHS4l8A"
   - label: "Model"
     url: "https://huggingface.co/thu-pacman/PCMind-2.1-Kaiyuan-2B"
   - label: "Dataset"
@@ -29,6 +31,7 @@ featured_order: 2
 ---
 
 - [Technical Report](https://arxiv.org/abs/2512.07612)
+- **Derived submission:** [Quantile Benchmarking Heterogeneous Web Corpora in Open LLM Pretraining](https://openreview.net/forum?id=lwteHS4l8A), **NeurIPS 2026 Spotlight (Top 1.3%)**
 - [Model](https://huggingface.co/thu-pacman/PCMind-2.1-Kaiyuan-2B)
 - [Dataset](https://huggingface.co/datasets/thu-pacman/PCMind-2.1-Kaiyuan-2B)
 - [Kaiyuan-Spark](https://github.com/thu-pacman/Kaiyuan-Spark)
