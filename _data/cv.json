@@ -82,10 +82,10 @@
     },
     {
       "name": "Larger Datasets Can Be Repeated More: A Theoretical Analysis of Multi-Epoch Scaling in Linear Regression",
-      "publisher": "Experimental part",
+      "publisher": "ICLR 2026",
       "releaseDate": "2025-11-17",
       "website": "https://openreview.net/forum?id=0CXjpAxHUE",
-      "summary": "My contribution was to the experimental part of the paper."
+      "summary": "Theory and LLM experiments show how dataset size affects useful data reuse. My contribution was to the experimental part of the paper."
     },
     {
       "name": "A Multi-Power Law for Loss Curve Prediction Across Learning Rate Schedules",

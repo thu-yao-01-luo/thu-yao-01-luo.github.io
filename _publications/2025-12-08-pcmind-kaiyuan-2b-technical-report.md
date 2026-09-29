@@ -8,11 +8,11 @@ date: 2025-12-08
 venue: "Technical Report"
 authors: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, Wenguang Chen"
 highlight: "Technical Report; derived submission: NeurIPS 2026 Spotlight (Top 1.3%)"
-summary: "A fully open 2B language model released together with model weights, dataset, data preprocessing pipeline, and training framework."
+summary: "We develop quantile benchmarking to compare heterogeneous corpora, pair it with curriculum training, and release the complete 2B pretraining stack: data, weights, and training code."
 links:
   - label: "Technical Report"
     url: "https://arxiv.org/abs/2512.07612"
-  - label: "Derived submission (NeurIPS 2026 Spotlight)"
+  - label: "Derived paper"
     url: "https://openreview.net/forum?id=lwteHS4l8A"
   - label: "Model"
     url: "https://huggingface.co/thu-pacman/PCMind-2.1-Kaiyuan-2B"
@@ -27,7 +27,13 @@ citation: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Che
 header:
   teaser: research/kaiyuan-2b-performance.svg
 featured: true
-featured_order: 2
+featured_order: 3
+teaser_caption: "Model performance · Fig. 1"
+teaser_alt: "Kaiyuan-2B performance compared with fully open and open-weight language models."
+focus: "Data quality & open pretraining"
+award: "NeurIPS 2026 · Spotlight · Top 1.3%"
+award_type: "spotlight"
+award_context: "Derived submission"
 ---
 
 - [Technical Report](https://arxiv.org/abs/2512.07612)

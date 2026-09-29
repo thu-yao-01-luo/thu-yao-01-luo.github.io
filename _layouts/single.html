@@ -45,16 +45,26 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+        {% if page.collection == 'publications' %}
+          <p class="publication-detail__authors">{{ page.authors | replace: "Kairong Luo", "<strong>Kairong Luo</strong>" }}</p>
+          {% if page.award %}
+            <div class="publication-card__badges">
+              {% if page.award_context %}<span class="publication-card__award-context">{{ page.award_context }}</span>{% endif %}
+              <span class="publication-card__badge publication-card__badge--{{ page.award_type }}">{{ page.award }}</span>
+            </div>
+          {% endif %}
+        {% endif %}
+
         {{ content }}
 
         {% if page.citation and page.paperurl and page.slidesurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a></p>
+          <p style="font-size: smaller">Recommended citation: {{ page.citation | replace: "Kairong Luo", "<strong>Kairong Luo</strong>" }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a></p>
         {% elsif page.citation and page.paperurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a></p>
+          <p style="font-size: smaller">Recommended citation: {{ page.citation | replace: "Kairong Luo", "<strong>Kairong Luo</strong>" }}<br /><a href="{{ page.paperurl }}">Download Paper</a></p>
         {% elsif page.citation and page.slidesurl %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a></p>
+          <p style="font-size: smaller">Recommended citation: {{ page.citation | replace: "Kairong Luo", "<strong>Kairong Luo</strong>" }}<br /><a href="{{ page.slidesurl }}">Download Slides</a></p>
         {% elsif page.citation %}
-          <p style="font-size: smaller">Recommended citation: {{ page.citation }}</p>
+          <p style="font-size: smaller">Recommended citation: {{ page.citation | replace: "Kairong Luo", "<strong>Kairong Luo</strong>" }}</p>
         {% elsif page.slidesurl %}
           <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
         {% endif %}

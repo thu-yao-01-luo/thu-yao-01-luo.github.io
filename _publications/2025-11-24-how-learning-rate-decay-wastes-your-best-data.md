@@ -8,7 +8,7 @@ date: 2025-11-24
 venue: "ICLR 2026"
 authors: "Kairong Luo, Zhenbo Sun, Haodong Wen, Xinyu Shi, Jiarui Cui, Chenyi Dang, Kaifeng Lyu, Wenguang Chen"
 highlight: "Oral Presentation (Top 1.2%), ICLR 2026"
-summary: "We identify a mismatch between ascending-quality curricula and standard learning-rate decay, and show that moderate LR decay together with model averaging can recover the gains of curriculum-based pretraining."
+summary: "Why can better data arrive too late? We identify how learning-rate decay weakens ascending-quality curricula, and recover their gains with moderate decay and model averaging."
 links:
   - label: "OpenReview PDF"
     url: "https://openreview.net/pdf?id=T5wkZJqzkz"
@@ -17,9 +17,14 @@ links:
 paperurl: "https://openreview.net/pdf?id=T5wkZJqzkz"
 citation: "Kairong Luo, Zhenbo Sun, Haodong Wen, Xinyu Shi, Jiarui Cui, Chenyi Dang, Kaifeng Lyu, and Wenguang Chen. (2026). &quot;How Learning Rate Decay Wastes Your Best Data in Curriculum-Based LLM Pretraining.&quot; <i>ICLR 2026</i>."
 header:
-  teaser: research/curriculum-model-averaging-summary.png
+  teaser: research/curriculum-lr-interaction.png
 featured: true
-featured_order: 1
+featured_order: 2
+teaser_caption: "Curriculum × learning rate · Fig. 1"
+teaser_alt: "Constant, WSD and cosine learning rates reveal different effects of ascending-quality curricula."
+focus: "Understanding pretraining dynamics"
+award: "ICLR 2026 · Oral · Top 1.2%"
+award_type: "oral"
 ---
 
 - **Oral Presentation (Top 1.2%)**, ICLR 2026

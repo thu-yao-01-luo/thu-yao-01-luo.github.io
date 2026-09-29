@@ -1,51 +1,41 @@
 {% assign post = include.post %}
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
-{% endif %}
-
-<article class="publication-card">
-  <h3 class="publication-card__title">
-    <a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a>
-  </h3>
-
+{% assign teaser = post.header.teaser %}
+<article class="publication-card{% if post.award_type %} publication-card--{{ post.award_type }}{% endif %}">
+  <div class="publication-card__heading">
+    {% if post.focus %}<p class="publication-card__focus">{{ post.focus }}</p>{% endif %}
+    <div class="publication-card__badges">
+      {% if post.award %}
+        {% if post.award_context %}<span class="publication-card__award-context">{{ post.award_context }}</span>{% endif %}
+        <span class="publication-card__badge publication-card__badge--{{ post.award_type }}">{{ post.award }}</span>
+      {% else %}
+        <span class="publication-card__meta">{{ post.highlight | default: post.venue }}</span>
+      {% endif %}
+    </div>
+    <h3 class="publication-card__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+    {% if post.authors %}
+      <p class="publication-card__authors">{{ post.authors | replace: "Kairong Luo", "<strong>Kairong Luo</strong>" }}</p>
+    {% endif %}
+  </div>
   <div class="publication-card__content">
     {% if teaser %}
-      <div class="publication-card__media">
-        <a href="{{ base_path }}{{ post.url }}" aria-label="{{ post.title }}">
-          <img
-            src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ teaser | prepend: '/images/' | prepend: base_path }}{% endif %}"
-            alt="{{ post.title }}">
+      <figure class="publication-card__media">
+        <a href="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ base_path }}/images/{{ teaser }}{% endif %}" target="_blank" rel="noopener noreferrer" aria-label="Enlarge figure: {{ post.title | escape }}">
+          <img src="{% if teaser contains '://' %}{{ teaser }}{% else %}{{ base_path }}/images/{{ teaser }}{% endif %}" alt="{{ post.teaser_alt | default: post.title | escape }}" loading="lazy">
         </a>
-      </div>
+        {% if post.teaser_caption %}<figcaption>{{ post.teaser_caption }} <span aria-hidden="true">↗</span></figcaption>{% endif %}
+      </figure>
     {% endif %}
-
     <div class="publication-card__body">
-    {% if post.authors %}
-      <p class="publication-card__authors">{{ post.authors }}</p>
-    {% endif %}
-
-    {% if post.highlight %}
-      <p class="publication-card__meta">{{ post.highlight }}</p>
-    {% elsif post.venue %}
-      <p class="publication-card__meta">{{ post.venue }}</p>
-    {% endif %}
-
-    {% assign summary = post.summary | default: post.excerpt %}
-    {% if summary %}
-      <p class="publication-card__summary">{{ summary }}</p>
-    {% endif %}
-
-    {% if post.links %}
-      <div class="publication-card__links">
-        {% for link in post.links %}
-          <a class="publication-card__link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
-        {% endfor %}
-      </div>
-    {% elsif post.paperurl %}
-      <div class="publication-card__links">
-        <a class="publication-card__link" href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">Paper</a>
-      </div>
-    {% endif %}
+      {% assign summary = post.summary | default: post.excerpt %}
+      {% if summary %}<p class="publication-card__summary">{{ summary }}</p>{% endif %}
+      {% if post.contribution %}<p class="publication-card__contribution"><strong>My contribution:</strong> {{ post.contribution }}</p>{% endif %}
+      {% if post.links %}
+        <div class="publication-card__links">
+          {% for link in post.links %}<a class="publication-card__link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% endfor %}
+        </div>
+      {% elsif post.paperurl %}
+        <div class="publication-card__links"><a class="publication-card__link" href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">Paper</a></div>
+      {% endif %}
     </div>
   </div>
 </article>
