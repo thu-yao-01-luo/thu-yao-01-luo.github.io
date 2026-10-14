@@ -158,7 +158,7 @@
     const orderedSteps = [...new Set(sampleSteps)].sort((first, second) => first - second);
     let markup = `<g data-cma-late-scale="linear"><path d="M${left} 363H${right}" class="cma-divider"/>`;
     markup += label(left, 386, 'Late stage', 'cma-panel-title');
-    markup += label(left, 409, record.resumeStep ? `Resume ${shortStep(record.resumeStep)} → constant LR` : 'Linear decay', record.resumeStep ? 'cma-constant-label' : 'cma-decay-label');
+    markup += label(left, 409, record.resumeStep ? `Resume at ${shortStep(record.resumeStep)} → constant LR` : 'Linear decay', record.resumeStep ? 'cma-constant-label' : 'cma-decay-label');
     markup += `<path d="M${left} 439V570H${mainRight}" class="cma-axis"/>`;
     markup += label(18, 436, 'LR', 'cma-axis-label') + label(left - 10, 575, '0', 'cma-axis-label', 'end');
     if (record.resumeStep) {
@@ -189,7 +189,7 @@
   }
 
   function render(record) {
-    const description = `${record.name}: ${record.order === 'UD' ? 'uniformly mixed' : 'curriculum-ordered'} Phase 2 data. ${record.resumeStep ? `Constant LR resumed at step ${record.resumeStep}` : 'Linear LR decay'}. ${record.averaging ? 'Late checkpoint parameter averaging. The boxed inset has its own linear time axis.' : 'Evaluate the final checkpoint without averaging.'}`;
+    const description = `${record.name}: ${record.order === 'UD' ? 'randomly shuffled' : 'curriculum-ordered'} Phase 2 data. ${record.resumeStep ? `Training resumes at step ${record.resumeStep} with a constant LR` : 'Linear LR decay'}. ${record.averaging ? 'Average model parameters across late checkpoints. The boxed inset has its own linear time axis.' : 'Evaluate the final checkpoint without averaging.'}`;
     container.innerHTML = `<svg class="cma-setup-svg" viewBox="0 0 720 654" role="img" aria-label="${escape(record.name)}" aria-describedby="cma-diagram-description" data-cma-setup="${record.id}" data-cma-resume="${record.resumeStep || ''}" data-cma-average="${record.averaging}"><desc id="cma-diagram-description">${escape(description)}</desc><rect width="720" height="654" fill="#fff"/>${qualityDefinitions()}${overview(record)}${lateStage(record)}</svg>`;
   }
 
