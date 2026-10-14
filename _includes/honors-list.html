@@ -1,0 +1,18 @@
+<ul class="honors-list">
+  {% for award in include.awards %}
+    <li>
+      <div class="honor-date">
+        {% if award.display_date %}
+          {{ award.display_date }}
+        {% elsif award.date != '' %}
+          <time datetime="{{ award.date }}">{{ award.date | slice: 0, 4 }}</time>
+        {% endif %}
+      </div>
+      <div>
+        <span class="honor-title">{% if award.url %}<a href="{{ award.url }}" target="_blank" rel="noopener noreferrer">{{ award.title }}</a>{% else %}{{ award.title }}{% endif %}</span>
+        <span class="honor-detail">{{ award.awarder }}{% if award.summary != '' %} · {{ award.summary }}{% endif %}</span>
+        {% if include.show_original and award.original %}<span class="honor-detail" lang="zh-Hans">{{ award.original }}</span>{% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,14 @@
+{% assign entry = include.post %}
+{% assign article_url = entry.article_url | default: entry.url %}
+<article class="blog-card">
+  {% if entry.teaser %}
+    <a class="blog-card__image" href="{{ article_url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ entry.teaser | relative_url }}" alt="" loading="lazy" decoding="async"></a>
+  {% endif %}
+  <div>
+    <p class="blog-card__meta"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: '%B %d, %Y' }}</time><span>{{ entry.languages }}</span></p>
+    <h3 class="blog-card__title"><a href="{{ article_url | relative_url }}">{{ entry.title }}</a></h3>
+    {% if entry.title_zh %}<p class="blog-card__subtitle" lang="zh-Hans">{{ entry.title_zh }}</p>{% endif %}
+    <p class="blog-card__summary">{{ entry.summary }}</p>
+    <a class="blog-card__link" href="{{ article_url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+  </div>
+</article>

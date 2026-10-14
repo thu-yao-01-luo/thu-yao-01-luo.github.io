@@ -1,0 +1,56 @@
+<header class="page-heading">
+  <h1>Curriculum vitae</h1>
+  <p>Kairong Luo · Ph.D. student at Tsinghua University</p>
+  <div class="profile-links"><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><a href="{{ site.author.googlescholar }}">Google Scholar</a></div>
+</header>
+
+<section class="cv-section" aria-labelledby="education">
+  <h2 id="education">Education</h2>
+  {% for degree in site.data.cv.education %}
+    <div class="cv-entry">
+      <div class="cv-entry__date">{{ degree.startDate }}–{{ degree.endDate }}</div>
+      <div><h3>{{ degree.studyType }} in {{ degree.area }}</h3><p>{{ degree.institution }}</p><p class="cv-entry__detail">{{ degree.summary }}</p></div>
+    </div>
+  {% endfor %}
+  <p class="cv-note">Research interests: {{ site.data.cv.interests[0].keywords | join: '; ' }}.</p>
+</section>
+
+<section id="honors" class="cv-section" aria-labelledby="cv-honors-title">
+  <h2 id="cv-honors-title">Selected honors</h2>
+  {% assign selected_awards = site.data.cv.awards | where: 'selected', true | sort: 'selected_order' %}
+  {% include honors-list.html awards=selected_awards show_original=true %}
+</section>
+
+<section class="cv-section" aria-labelledby="other-honors">
+  <h2 id="other-honors">Other honors</h2>
+  {% assign other_awards = site.data.cv.awards | where: 'selected', false | sort: 'date' | reverse %}
+  {% include honors-list.html awards=other_awards show_original=true %}
+</section>
+
+<section class="cv-section" aria-labelledby="cv-publications">
+  <h2 id="cv-publications">Publications</h2>
+  {% assign papers = site.publications | sort: 'year' | reverse %}
+  {% for post in papers %}
+    {% include publication-card.html post=post compact=true %}
+  {% endfor %}
+</section>
+
+<section class="cv-section" aria-labelledby="teaching">
+  <h2 id="teaching">Teaching Assistant</h2>
+  {% for course in site.data.cv.teaching %}
+    <div class="cv-entry">
+      <div class="cv-entry__date">{{ course.term }}</div>
+      <div><h3>{{ course.course }}</h3><p class="cv-entry__detail">{{ course.role }}, {{ course.institution }} · Instructor: <a href="{{ course.url }}">{{ course.instructor }}</a></p></div>
+    </div>
+  {% endfor %}
+</section>
+
+<section class="cv-section" aria-labelledby="service">
+  <h2 id="service">Service &amp; leadership</h2>
+  {% for position in site.data.cv.service %}
+    <div class="cv-entry">
+      <div class="cv-entry__date">{{ position.dates }}</div>
+      <div><h3>{{ position.role }}</h3><p class="cv-entry__detail">{{ position.organization }}</p>{% if position.summary != '' %}<p class="cv-entry__detail">{{ position.summary }}</p>{% endif %}</div>
+    </div>
+  {% endfor %}
+</section>

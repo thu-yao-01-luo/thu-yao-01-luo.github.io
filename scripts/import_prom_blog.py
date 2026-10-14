@@ -1,0 +1,121 @@
+#!/usr/bin/env python3
+
+import argparse
+from datetime import date
+from hashlib import sha256
+from html import escape
+import json
+from pathlib import Path
+import re
+
+
+RUNTIME_FILES = (
+    "index.html",
+    "styles.css",
+    "elr-explorer.css",
+    "cma-setup.css",
+    "data.js",
+    "app.js",
+    "elr-explorer.js",
+    "cma-setup.js",
+    "assets/fonts/LinuxBiolinum-LICENSE.txt",
+)
+ASSET_PATTERN = re.compile(r"assets/[A-Za-z0-9_./-]+\.(?:svg|png|jpg|jpeg|webp|gif|woff2|pdf)")
+NAVIGATION_CSS = """.homepage-breadcrumbs { display: flex; align-items: center; gap: .6rem; min-width: 0; font-size: .875rem; }
+.homepage-breadcrumbs a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+.homepage-breadcrumbs a:hover { color: var(--link); text-decoration: underline; }
+.homepage-breadcrumbs > span { color: var(--muted); }
+@media (max-width: 600px) {
+  .homepage-breadcrumbs .site-title, .homepage-breadcrumbs__separator { display: none; }
+  .header-compact .homepage-breadcrumbs { display: none; }
+}
+"""
+
+
+def collect_snapshot(source):
+    snapshot = {}
+    pending = set(RUNTIME_FILES)
+    while pending:
+        name = pending.pop()
+        relative = Path(name)
+        if relative.is_absolute() or ".." in relative.parts:
+            raise ValueError(f"Unsafe asset path: {name}")
+        file = (source / relative).resolve()
+        if not file.is_relative_to(source):
+            raise ValueError(f"Asset is outside the source blog: {name}")
+        content = file.read_bytes()
+        snapshot[name] = content
+        if file.suffix in (".html", ".css", ".js", ".svg"):
+            for asset in ASSET_PATTERN.findall(content.decode("utf-8")):
+                if asset not in snapshot:
+                    pending.add(asset)
+    for name, content in snapshot.items():
+        if (source / name).read_bytes() != content:
+            raise RuntimeError("The source blog changed during import. Retry after its build finishes.")
+    return snapshot
+
+
+def integrate_navigation(content, site_url):
+    title_pattern = r'<a class="site-title" href="#intro">.*?</a>'
+    title = re.search(title_pattern, content)
+    if not title:
+        raise ValueError("The source blog header changed; review the navigation integration before importing.")
+    navigation = (
+        '<nav class="homepage-breadcrumbs" aria-label="Website navigation">'
+        '<a href="../../">Kairong Luo</a><span aria-hidden="true">/</span>'
+        '<a href="../">Blog</a><span class="homepage-breadcrumbs__separator" aria-hidden="true">/</span>'
+        + title.group() + '</nav>'
+    )
+    content = content[:title.start()] + navigation + content[title.end():]
+    canonical = escape(site_url.rstrip("/") + "/blog/prom-technical-report/", quote=True)
+    additions = (
+        '  <link rel="stylesheet" href="homepage.css">\n'
+        '  <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">\n'
+        f'  <link rel="canonical" href="{canonical}">\n'
+        f'  <meta property="og:url" content="{canonical}">\n'
+    )
+    if content.count("</head>") != 1:
+        raise ValueError("The source blog must contain exactly one document head.")
+    return content.replace("</head>", additions + "</head>", 1)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Import only the public runtime of the Puro-2B blog.")
+    parser.add_argument("source", type=Path, help="Path to Prom-Technical-Report/blog")
+    parser.add_argument("--site-url", default="https://kairong.me")
+    parser.add_argument("--noto-license", type=Path, default=Path("/usr/share/doc/fonts-noto-cjk/copyright"))
+    args = parser.parse_args()
+    source = args.source.resolve(strict=True)
+    project = Path(__file__).resolve().parents[1]
+    destination = project / "blog" / "prom-technical-report"
+    snapshot = collect_snapshot(source)
+    imported = dict(snapshot)
+    imported["index.html"] = integrate_navigation(snapshot["index.html"].decode("utf-8"), args.site_url).encode("utf-8")
+    imported["homepage.css"] = NAVIGATION_CSS.encode("utf-8")
+    license_path = args.noto_license
+    if not license_path.is_file():
+        license_path = destination / "assets/fonts/NotoSansCJK-LICENSE.txt"
+    imported["assets/fonts/NotoSansCJK-LICENSE.txt"] = license_path.read_bytes()
+    manifest = {
+        "source_project": "Prom-Technical-Report/blog",
+        "imported_on": date.today().isoformat(),
+        "article_url": "/blog/prom-technical-report/",
+        "source_sha256": {name: sha256(content).hexdigest() for name, content in sorted(snapshot.items())},
+        "imported_sha256": {name: sha256(content).hexdigest() for name, content in sorted(imported.items())},
+    }
+    for name, content in imported.items():
+        target = destination / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_name(target.name + ".import-tmp")
+        temporary.write_bytes(content)
+        temporary.replace(target)
+    (project / "_data" / "prom_blog_import.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    print(f"Imported {len(imported)} public files ({sum(map(len, imported.values())) / 1024 / 1024:.2f} MiB).")
+    print("Article: /blog/prom-technical-report/")
+    print("Original source is unchanged. Rebuild the homepage to refresh its preview.")
+
+
+if __name__ == "__main__":
+    main()

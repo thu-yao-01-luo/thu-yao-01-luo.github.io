@@ -1,33 +1,62 @@
 ---
-layout: archive
+layout: academic
 permalink: /
-title: "About Me"
-author_profile: true
-redirect_from: 
+title: "Kairong Luo · 罗开荣"
+description: "Ph.D. student at Tsinghua University studying data, optimization, and efficient language-model pretraining."
+redirect_from:
   - /about/
   - /about.html
 ---
 
-{% include base_path %}
+<section class="hero" aria-labelledby="about-title">
+  <div class="hero-intro">
+    <h1 id="about-title">Kairong Luo <span lang="zh-Hans">罗开荣</span></h1>
+    <p class="hero-role">Ph.D. student · Computer Science · Tsinghua University</p>
+  </div>
+  <figure class="hero-portrait">
+    <img src="{{ '/images/profile-home.webp' | relative_url }}" width="480" height="600" alt="Portrait of Kairong Luo" fetchpriority="high">
+  </figure>
+  <div class="hero-bio">
+    <p>I am advised by <a href="https://pacman.cs.tsinghua.edu.cn/~cwg/">Wenguang Chen</a> in the <a href="https://github.com/thu-pacman">PACMAN Lab</a>, and work closely with <a href="https://kaifeng.ac/">Kaifeng Lyu</a> and <a href="https://shengdinghu.github.io/">Shengding Hu</a>.</p>
+    <p class="research-line">I study how <strong>data and optimization</strong> shape language model pretraining, and turn these insights into <strong>efficient, fully open training recipes</strong>.</p>
+    <p>Previously, I received my B.Eng. from Tsinghua’s <a href="https://iiis.tsinghua.edu.cn/">Yao Class</a> in 2024.</p>
+    <div class="profile-links" aria-label="Contact and academic profiles">
+      <a href="mailto:{{ site.author.email }}">Email</a>
+      <a href="{{ site.author.googlescholar }}">Google Scholar</a>
+      <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+      <a href="https://x.com/{{ site.author.twitter }}">X</a>
+      <a href="{{ '/cv/' | relative_url }}">CV</a>
+    </div>
+  </div>
+</section>
 
-I am a third-year Ph.D. student in the Department of Computer Science and Technology at Tsinghua University, fortunate to be advised by [Prof. Wenguang Chen](https://pacman.cs.tsinghua.edu.cn/~cwg/) in the [PACMAN Lab](https://github.com/thu-pacman). My current research interests and effort include **scaling of language models**, **efficient training**, **open-source pretraining**, and understanding how data curricula and optimization interact during pretraining. I am fortunate to collaborate with [Kaifeng Lyu](https://kaifeng.ac/) and [Shengding Hu](https://shengdinghu.github.io/).
+<section id="blog" class="blog-section" aria-labelledby="blog-title">
+  <div class="section-heading">
+    <h2 id="blog-title">Blog</h2>
+    <a href="{{ '/blog/' | relative_url }}">All posts <span aria-hidden="true">→</span></a>
+  </div>
+  {% assign recent_posts = site.posts | sort: 'date' | reverse %}
+  {% for entry in recent_posts limit: 1 %}
+    {% include blog-card.html post=entry %}
+  {% endfor %}
+</section>
 
-I received my **B.Eng. in Computer Science and Technology** in 2024 from Tsinghua University, where I was a member of the **Yao Class**, headed by Prof. Andrew Chi-Chih Yao. During my undergraduate study, I was fortunately advised by [Li Yi](https://ericyi.github.io/), [Hao Su](https://cseweb.ucsd.edu/~haosu/), and [Wenguang Chen](https://pacman.cs.tsinghua.edu.cn/~cwg/).
-
-<div class="research-statement" markdown="1">
-**Making pretraining more efficient—and understanding why it works.**
-
-My work connects scaling laws, data quality, and optimization dynamics. I use controlled experiments to understand how training choices interact, then translate those insights into better schedules and fully open pretraining recipes.
-</div>
-
-<div class="selected-heading">
-  <h2 id="selected-work">Selected Work</h2>
-  <a href="/publications/">All publications <span aria-hidden="true">→</span></a>
-</div>
-<p class="selected-intro">From predictive laws and training mechanisms to reproducible models.</p>
-{% assign featured_publications = site.publications | where: "featured", true | sort: "featured_order" %}
-<div class="publication-card-list publication-card-list--home">
+<section id="research" class="research-section" aria-labelledby="selected-work">
+  <div class="section-heading">
+    <h2 id="selected-work">Selected research</h2>
+    <a href="{{ '/publications/' | relative_url }}">All publications <span aria-hidden="true">→</span></a>
+  </div>
+  {% assign featured_publications = site.publications | where: 'featured', true | sort: 'featured_order' %}
   {% for post in featured_publications %}
     {% include publication-card.html post=post %}
   {% endfor %}
-</div>
+</section>
+
+<section id="honors" class="honors-section" aria-labelledby="honors-title">
+  <div class="section-heading">
+    <h2 id="honors-title">Selected honors</h2>
+    <a href="{{ '/cv/#honors' | relative_url }}">Full CV <span aria-hidden="true">→</span></a>
+  </div>
+  {% assign selected_awards = site.data.cv.awards | where: 'selected', true | sort: 'selected_order' %}
+  {% include honors-list.html awards=selected_awards %}
+</section>

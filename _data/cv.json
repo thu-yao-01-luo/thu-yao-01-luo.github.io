@@ -1,137 +1,195 @@
 {
+  "lastUpdated": "2026-10-14",
   "basics": {
     "name": "Kairong Luo",
     "email": "luokr2002@outlook.com",
-    "phone": "",
     "website": "https://kairong.me",
-    "summary": "Third-year Ph.D. student at Tsinghua University working on scaling of language models, efficient training, open-source pretraining, and pretraining dynamics.",
+    "summary": "Ph.D. student at Tsinghua University studying how data and optimization shape efficient, reproducible language-model pretraining.",
     "location": {
-      "address": "",
-      "postalCode": "",
       "city": "Beijing",
-      "countryCode": "CN",
-      "region": ""
-    },
-    "profiles": []
+      "countryCode": "CN"
+    }
   },
-  "work": [],
   "education": [
     {
       "institution": "Tsinghua University",
-      "area": "Third-year Ph.D. student in Department of Computer Science and Technology",
-      "studyType": "",
+      "area": "Computer Science and Technology",
+      "studyType": "Ph.D.",
       "startDate": "2024",
-      "endDate": "2029 (expected)",
-      "gpa": "4.0/4.0",
-      "courses": []
+      "endDate": "present",
+      "summary": "Advised by Wenguang Chen, PACMAN Lab."
     },
     {
       "institution": "Tsinghua University",
-      "area": "B.S. in Institute for Interdisciplinary Information Sciences (IIIS)",
-      "studyType": "",
+      "area": "Computer Science and Technology",
+      "studyType": "B.Eng.",
       "startDate": "2020",
       "endDate": "2024",
-      "gpa": "3.95/4.0, Rank: 9/79",
-      "courses": []
+      "summary": "Yao Class, Institute for Interdisciplinary Information Sciences. Undergraduate research advised by Li Yi, Hao Su, and Wenguang Chen."
     }
   ],
-  "skills": [],
-  "languages": [],
   "interests": [
     {
       "name": "Research Interests",
       "keywords": [
-        "Scaling of language models",
-        "Efficient training",
-        "Open-source pretraining",
-        "Pretraining dynamics",
+        "Data quality and mixing",
         "Scaling laws",
-        "Curriculum design"
+        "Optimization and training dynamics",
+        "Efficient, open language-model pretraining"
       ]
     }
   ],
-  "references": [],
-  "publications": [
+  "awards": [
     {
-      "name": "Puro-2B: Poor Lab's Qwen2-1.5B Trained on RTX 5090 within $5090",
-      "publisher": "Technical Report",
-      "releaseDate": "2026-08-27",
-      "website": "https://arxiv.org/abs/2608.27370",
-      "summary": "An open, cost-efficient recipe for pretraining 2B language models on consumer-grade RTX 5090 GPUs, with the full data, code, and model weights released under Apache 2.0."
+      "title": "National Scholarship",
+      "original": "研究生国家奖学金",
+      "date": "2026",
+      "awarder": "China",
+      "summary": "",
+      "selected": true,
+      "selected_order": 1
     },
     {
-      "name": "RoBSA: RoPE-based Blockwise Sparse Multi-head Latent Attention",
-      "publisher": "ACL 2026 (Recommended as Oral)",
-      "releaseDate": "2026-07-01",
-      "website": "https://aclanthology.org/2026.acl-long.46/",
-      "summary": "My contributions were experiment analysis and assistance with paper writing."
+      "title": "Outstanding Graduate, IIIS",
+      "original": "交叉信息研究院优秀毕业生",
+      "date": "2024",
+      "awarder": "Tsinghua University",
+      "summary": "",
+      "selected": true,
+      "selected_order": 2
     },
     {
-      "name": "How Learning Rate Decay Wastes Your Best Data in Curriculum-Based LLM Pretraining",
-      "publisher": "ICLR 2026 Oral Presentation (Top 1.2%)",
-      "releaseDate": "2025-11-24",
-      "website": "https://openreview.net/pdf?id=T5wkZJqzkz",
-      "summary": "Studies the mismatch between ascending-quality curricula and standard learning-rate decay in LLM pretraining, and shows that moderate LR decay plus model averaging recovers the gains of curriculum ordering."
+      "title": "Yao Award (优胜奖)",
+      "original": "姚奖优胜奖",
+      "date": "",
+      "awarder": "IIIS, Tsinghua University",
+      "summary": "",
+      "selected": true,
+      "selected_order": 3
     },
     {
-      "name": "PCMind-2.1-Kaiyuan-2B Technical Report",
-      "publisher": "Technical Report",
-      "releaseDate": "2025-12-08",
-      "website": "https://arxiv.org/abs/2512.07612",
-      "summary": "Presents a fully open 2B language model and releases the complete stack around it, including model weights, dataset, preprocessing framework, and training framework. Its derived submission, Quantile Benchmarking Heterogeneous Web Corpora in Open LLM Pretraining, was selected as a NeurIPS 2026 Spotlight (Top 1.3%)."
+      "title": "Comprehensive Excellence Scholarship",
+      "original": "清华大学综合优秀奖学金",
+      "date": "2025-12",
+      "display_date": "2025, 2022",
+      "awarder": "Tsinghua University",
+      "summary": "First Class in 2025",
+      "selected": true,
+      "selected_order": 4
     },
     {
-      "name": "Larger Datasets Can Be Repeated More: A Theoretical Analysis of Multi-Epoch Scaling in Linear Regression",
-      "publisher": "ICLR 2026",
-      "releaseDate": "2025-11-17",
-      "website": "https://openreview.net/forum?id=0CXjpAxHUE",
-      "summary": "Theory and LLM experiments show how dataset size affects useful data reuse. My contribution was to the experimental part of the paper."
+      "title": "First Prize, “Zhihui Qingnian” Academic Poster Competition",
+      "original": "清华大学“智汇清年”学术海报评比一等奖",
+      "date": "2026-05-30",
+      "url": "https://ai-summit.pacman-thu.org/",
+      "awarder": "Tsinghua University",
+      "summary": "",
+      "selected": false
     },
     {
-      "name": "A Multi-Power Law for Loss Curve Prediction Across Learning Rate Schedules",
-      "publisher": "ICLR 2025",
-      "releaseDate": "2025-03-17",
-      "website": "https://arxiv.org/abs/2503.12811",
-      "summary": "Introduces a multi-power law that predicts loss curves across learning-rate schedules and helps identify better schedules than widely used defaults such as cosine decay."
+      "title": "Top Ten Scholar, Frontier Young Scholars Forum",
+      "original": "世纪前沿第一、二届前沿青年学者论坛十佳学者",
+      "date": "2026-04-10",
+      "display_date": "2026, 2025",
+      "awarder": "世纪前沿",
+      "summary": "Joint first place in the second forum (2026)",
+      "selected": false
     },
     {
-      "name": "DreamFuser: Value-guided Diffusion Policy for Offline Reinforcement Learning",
-      "publisher": "Preprint / Under Review",
-      "releaseDate": "2023-11-01",
-      "website": "https://openreview.net/forum?id=9jmUwjZi7j",
-      "summary": "A trajectory-based value optimization approach that combines diffusion policy learning with efficient Q-function learning for offline reinforcement learning."
+      "title": "Outstanding Student Leader",
+      "original": "清华大学优秀学生干部",
+      "date": "2026-07",
+      "awarder": "Tsinghua University",
+      "summary": "",
+      "selected": false
+    },
+    {
+      "title": "Outstanding Student",
+      "original": "清华大学三好学生",
+      "date": "2026-07",
+      "awarder": "Tsinghua University",
+      "summary": "",
+      "selected": false
+    },
+    {
+      "title": "Rising Star Award, Graduate Student Forum",
+      "original": "计算机系硕博论坛新星奖",
+      "date": "2026-04-19",
+      "display_date": "2026, 2025",
+      "awarder": "Department of Computer Science, Tsinghua University",
+      "summary": "Awarded twice",
+      "selected": false
+    },
+    {
+      "title": "Outstanding Teaching Assistant, Second Prize",
+      "date": "2025",
+      "awarder": "Tsinghua University",
+      "summary": "Data Structure and Algorithm",
+      "selected": false
     }
   ],
-  "presentations": [],
   "teaching": [
     {
-      "course": "Probability and Statistics (English)",
+      "course": "Large Language Models from Scratch: Theory and Practice",
       "institution": "Tsinghua University",
-      "date": "2023-09-01",
+      "term": "Fall 2025",
+      "date": "2025-09",
       "role": "Teaching Assistant",
-      "description": "Course Code: 30470303-0. Instructor: Yuhao Wang."
+      "instructor": "Kaifeng Lyu",
+      "url": "https://kaifeng.ac/"
     },
     {
-      "course": "Introduction to Computing Systems (Chinese, 计算机系统概论)",
+      "course": "Data Structure and Algorithm",
       "institution": "Tsinghua University",
-      "date": "2024-09-01",
+      "term": "Spring 2025",
+      "date": "2025-02",
       "role": "Teaching Assistant",
-      "description": "Course Code: 30240593. Instructor: Wentao Han."
+      "instructor": "Wentao Han",
+      "url": "https://pacman.cs.tsinghua.edu.cn/~hanwentao/"
     },
     {
-      "course": "Data Structure and Algorithm (Chinese, 数据结构与算法)",
+      "course": "Introduction to Computing Systems",
       "institution": "Tsinghua University",
-      "date": "2025-02-01",
+      "term": "Fall 2024",
+      "date": "2024-09",
       "role": "Teaching Assistant",
-      "description": "Course Code: 20740112. Instructor: Wentao Han. Award: Second Prize, Outstanding Teaching Assistant, Tsinghua University."
+      "instructor": "Wentao Han",
+      "url": "https://pacman.cs.tsinghua.edu.cn/~hanwentao/"
     },
     {
-      "course": "Large Language Models from Scratch: Theory and Practice (从头训练大语言模型：理论与实践)",
+      "course": "Probability and Statistics",
       "institution": "Tsinghua University",
-      "date": "2025-09-01",
+      "term": "Fall 2023",
+      "date": "2023-09",
       "role": "Teaching Assistant",
-      "description": "Course Code: 40470533-0. Instructor: Kaifeng Lyu. Term: 2025-2026 Academic Year, Fall Semester. Meeting time: Friday, Period 6 (all weeks), 六教6A201."
+      "instructor": "Yuhao Wang",
+      "url": "https://yuhaow.github.io/"
     }
   ],
-  "portfolio": []
+  "service": [
+    {
+      "role": "Class Advisor, Yao Class 51",
+      "organization": "Institute for Interdisciplinary Information Sciences, Tsinghua University",
+      "dates": "Aug 2025–present",
+      "summary": "Student mentoring and community building."
+    },
+    {
+      "role": "Head, Academic Affairs Department",
+      "organization": "Tsinghua University Graduate Student Union",
+      "dates": "Mar–Sep 2026",
+      "summary": "Organized academic exchange activities, including the AI Top Conferences on Campus series."
+    },
+    {
+      "role": "Pre-college Program Mentor",
+      "organization": "IIIS and Department of Computer Science, Tsinghua University",
+      "dates": "Aug 2024–Jun 2025",
+      "summary": "Computer Science: Aug 2024 to Jan 2025; IIIS: Oct 2024 to Jun 2025."
+    },
+    {
+      "role": "Chair, IIIS Student Union",
+      "organization": "Tsinghua University",
+      "dates": "Nov 2023–Jun 2024",
+      "summary": ""
+    }
+  ]
 }

@@ -1,4 +1,44 @@
-# Academic Pages
+# Kairong Luo — academic website
+
+The main pages use a lightweight Jekyll layout; the original Academic Pages documentation is retained below.
+
+## Content maintenance
+
+- `_pages/about.md`: short biography and homepage structure.
+- `_publications/`: canonical publication records, including `year`, `summary` (one sentence), `distinction`, and `featured_order`.
+- `_data/cv.json`: education, honors, teaching, service, and the content-update date. Both CV routes read this file; publication lists read the collection directly.
+- `_posts/`: blog metadata and future posts. The old template examples are unpublished.
+- `assets/css/academic.css` and `_layouts/academic.html`: shared appearance and navigation.
+- `images/research/FIGURE_SOURCES.md`: provenance of the research figures.
+
+The former Markdown-to-JSON converter refuses to overwrite the data-backed CV. Conference papers and related technical reports are separate records. Honors reflect the author's updates; application forms alone are not award confirmation. Do not publish source attachments or private administrative fields.
+
+## Puro-2B blog
+
+The Blog navigation and homepage entry link to `/blog/prom-technical-report/`. This self-contained copy preserves the original Chinese/English article, figures, fonts, and interactive scripts. Only its navigation and canonical URL are adapted to this website. `/blog/puro-2b/` redirects to the full article.
+
+To refresh it from the current source project:
+
+```bash
+python3 scripts/import_prom_blog.py /root/Prom-Technical-Report/blog
+bundle exec jekyll build
+```
+
+The importer never edits the source project. It copies only the public runtime and referenced assets, not drafts, reviews, build inputs, or full font archives. `_data/prom_blog_import.json` records hashes for checking the snapshot. Noto and Linux Biolinum font notices are included; on another machine, pass `--noto-license` if no system notice or previously imported copy is available.
+
+## Preview without port conflicts
+
+```bash
+bundle install
+bundle exec jekyll build
+python3 scripts/preview.py
+```
+
+The preview binds only to `127.0.0.1` and asks the OS for a free port, then prints the URL. It serves only `_site`, supports extensionless publication URLs, and leaves existing servers alone. Rebuild after edits and refresh the page. Nothing is pushed or deployed by these commands.
+
+---
+
+# Academic Pages template
 **Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
 
 ![Academic Pages template example](images/homepage.png "Academic Pages template example")

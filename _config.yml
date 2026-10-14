@@ -12,7 +12,7 @@ site_theme               : "default"
 title                    : "Kairong Luo / 罗开荣"
 title_separator          : "-"
 name                     : &name "Kairong Luo"
-description              : &description "personal description"
+description              : &description "Kairong Luo is a Ph.D. student at Tsinghua University studying data, optimization, and efficient language-model pretraining."
 url                      : https://kairong.me # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/thu-yao-01-luo/thu-yao-01-luo.github.io"
@@ -25,7 +25,7 @@ author:
   avatar           : "profile1.jpeg"
   name             : "Kairong Luo"
   pronouns         : # example: "she/her"  
-  bio              : "3rd year PhD student at Tsinghua University"
+  bio              : "Ph.D. student at Tsinghua University"
   location         : "Beijing, China"
   employer         : "Tsinghua University"
   uri              : # URL
@@ -261,8 +261,8 @@ defaults:
       path: ""
       type: publications
     values:
-      layout: single
-      author_profile: true
+      layout: publication
+      author_profile: false
       share: true
       comments: true
   # _portfolio

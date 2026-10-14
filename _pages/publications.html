@@ -1,32 +1,27 @@
 ---
-layout: archive
+layout: academic
 title: "Publications"
 permalink: /publications/
-author_profile: false
+description: "Research by Kairong Luo on scaling laws, training data, optimization, and open language-model pretraining."
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<header class="page-heading">
+  <h1>Publications</h1>
+  <p>On data, optimization, and making pretraining more accessible. <a href="{{ site.author.googlescholar }}">Google Scholar</a></p>
+</header>
 
-{% include base_path %}
-
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign category_posts = site.publications | where: "category", category[0] | reverse %}
-    {% if category_posts.size > 0 %}
-      <h2>{{ category[1].title }}</h2><hr />
-      <div class="publication-card-list">
-        {% for post in category_posts %}
-          {% include publication-card.html post=post %}
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endfor %}
-{% else %}
-  <div class="publication-card-list">
-  {% for post in site.publications reversed %}
+{% assign conferences = site.publications | where: 'category', 'conferences' | sort: 'year' | reverse %}
+<section class="publication-group" aria-labelledby="conference-papers">
+  <h2 id="conference-papers">Conference papers</h2>
+  {% for post in conferences %}
     {% include publication-card.html post=post %}
   {% endfor %}
-  </div>
-{% endif %}
+</section>
+
+{% assign manuscripts = site.publications | where: 'category', 'manuscripts' | sort: 'year' | reverse %}
+<section class="publication-group" aria-labelledby="preprints-reports">
+  <h2 id="preprints-reports">Preprints &amp; technical reports</h2>
+  {% for post in manuscripts %}
+    {% include publication-card.html post=post %}
+  {% endfor %}
+</section>

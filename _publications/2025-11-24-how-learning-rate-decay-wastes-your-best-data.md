@@ -5,12 +5,15 @@ category: conferences
 permalink: /publication/how-learning-rate-decay-wastes-your-best-data
 excerpt: "Ascending-quality curriculum pretraining can lose its advantage under standard learning-rate decay; moderate decay and model averaging recover the gains."
 date: 2025-11-24
+year: 2026
 venue: "ICLR 2026"
 authors: "Kairong Luo, Zhenbo Sun, Haodong Wen, Xinyu Shi, Jiarui Cui, Chenyi Dang, Kaifeng Lyu, Wenguang Chen"
 highlight: "Oral Presentation (Top 1.2%), ICLR 2026"
-summary: "Why can better data arrive too late? We identify how learning-rate decay weakens ascending-quality curricula, and recover their gains with moderate decay and model averaging."
+summary: "Learning-rate decay weakens late-arriving high-quality data, while moderate decay and curriculum model averaging recover its training benefits."
+distinction: "Oral"
+topic: "Training dynamics"
 links:
-  - label: "OpenReview PDF"
+  - label: "Paper"
     url: "https://openreview.net/pdf?id=T5wkZJqzkz"
   - label: "arXiv"
     url: "https://arxiv.org/abs/2511.18903"
@@ -19,7 +22,7 @@ citation: "Kairong Luo, Zhenbo Sun, Haodong Wen, Xinyu Shi, Jiarui Cui, Chenyi D
 header:
   teaser: research/curriculum-lr-interaction.png
 featured: true
-featured_order: 2
+featured_order: 3
 teaser_caption: "Curriculum × learning rate · Fig. 1"
 teaser_alt: "Constant, WSD and cosine learning rates reveal different effects of ascending-quality curricula."
 focus: "Understanding pretraining dynamics"

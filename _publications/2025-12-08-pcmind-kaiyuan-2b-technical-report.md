@@ -5,14 +5,17 @@ category: manuscripts
 permalink: /publication/pcmind-kaiyuan-2b-technical-report
 excerpt: "A fully open 2B language model released together with model weights, dataset, data preprocessing pipeline, and training framework."
 date: 2025-12-08
+year: 2025
 venue: "Technical Report"
 authors: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, Wenguang Chen"
-highlight: "Technical Report; derived submission: NeurIPS 2026 Spotlight (Top 1.3%)"
-summary: "We develop quantile benchmarking to compare heterogeneous corpora, pair it with curriculum training, and release the complete 2B pretraining stack: data, weights, and training code."
+highlight: "Technical Report"
+summary: "An end-to-end open 2B pretraining stack releases the data, processing tools, training code, and model weights needed for reproducible research."
+topic: "Open pretraining"
+contribution: "Co-first author, listed first; project lead."
 links:
   - label: "Technical Report"
     url: "https://arxiv.org/abs/2512.07612"
-  - label: "Derived paper"
+  - label: "Related paper"
     url: "https://openreview.net/forum?id=lwteHS4l8A"
   - label: "Model"
     url: "https://huggingface.co/thu-pacman/PCMind-2.1-Kaiyuan-2B"
@@ -26,21 +29,19 @@ paperurl: "https://arxiv.org/pdf/2512.07612"
 citation: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, and Wenguang Chen. (2025). &quot;PCMind-2.1-Kaiyuan-2B Technical Report.&quot; <i>Technical Report</i>."
 header:
   teaser: research/kaiyuan-2b-performance.svg
-featured: true
-featured_order: 3
+featured: false
 teaser_caption: "Model performance · Fig. 1"
 teaser_alt: "Kaiyuan-2B performance compared with fully open and open-weight language models."
 focus: "Data quality & open pretraining"
-award: "NeurIPS 2026 · Spotlight · Top 1.3%"
-award_type: "spotlight"
-award_context: "Derived submission"
 ---
 
 - [Technical Report](https://arxiv.org/abs/2512.07612)
-- **Derived submission:** [Quantile Benchmarking Heterogeneous Web Corpora in Open LLM Pretraining](https://openreview.net/forum?id=lwteHS4l8A), **NeurIPS 2026 Spotlight (Top 1.3%)**
+- **Related conference paper:** [Open LLM Pretraining Guided by Quantile Benchmarking Heterogeneous Web Corpora]({{ '/publication/quantile-benchmarking' | relative_url }}), NeurIPS 2026 Spotlight.
 - [Model](https://huggingface.co/thu-pacman/PCMind-2.1-Kaiyuan-2B)
 - [Dataset](https://huggingface.co/datasets/thu-pacman/PCMind-2.1-Kaiyuan-2B)
 - [Kaiyuan-Spark](https://github.com/thu-pacman/Kaiyuan-Spark)
 - [kaiyuan-mindformers](https://github.com/thu-pacman/kaiyuan-mindformers/tree/kaiyuan)
 
 PCMind-2.1-Kaiyuan-2B is a fully open 2B language model focused on efficient and effective pretraining under resource constraints. We release the full stack around it, including model weights, dataset, preprocessing framework, and training framework.
+
+I led the project and am a co-first author, listed first.

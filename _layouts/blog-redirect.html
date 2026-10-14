@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>{{ page.title | escape }}</title>
+    <link rel="canonical" href="{{ page.article_url | absolute_url }}">
+    <meta http-equiv="refresh" content="0; url={{ page.article_url | relative_url }}">
+  </head>
+  <body>
+    <p><a href="{{ page.article_url | relative_url }}">Continue to {{ page.title }}</a></p>
+  </body>
+</html>

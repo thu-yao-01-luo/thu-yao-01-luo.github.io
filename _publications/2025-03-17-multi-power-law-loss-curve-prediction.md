@@ -5,10 +5,12 @@ category: conferences
 permalink: /publication/multi-power-law-loss-curve-prediction
 excerpt: "A multi-power law that predicts loss curves across learning-rate schedules and helps identify schedules that outperform widely used defaults such as cosine decay."
 date: 2025-03-17
+year: 2025
 venue: "ICLR 2025"
 authors: "Kairong Luo, Haodong Wen, Shengding Hu, Zhenbo Sun, Zhiyuan Liu, Maosong Sun, Kaifeng Lyu, Wenguang Chen"
 highlight: "Accepted by ICLR 2025"
-summary: "We model loss across learning-rate schedules, predict unseen training trajectories, and use the fitted law to discover schedules that outperform cosine and WSD."
+summary: "A multi-power law predicts loss under unseen learning-rate schedules, turning schedule selection from trial and error into a guided search."
+topic: "Scaling laws"
 links:
   - label: "arXiv"
     url: "https://arxiv.org/abs/2503.12811"

@@ -7,6 +7,7 @@ Teasers are original paper figures, not reconstructed data or illustrative chart
 | puro-2b-performance.png | Puro-2B | [arXiv:2608.27370v2](https://arxiv.org/abs/2608.27370v2), Figure 1, page 1 |
 | curriculum-lr-interaction.png | How Learning Rate Decay Wastes Your Best Data | [arXiv:2511.18903](https://arxiv.org/abs/2511.18903), Figure 1, page 2 |
 | kaiyuan-2b-performance.svg | PCMind-2.1-Kaiyuan-2B Technical Report | [arXiv:2512.07612](https://arxiv.org/abs/2512.07612), model performance comparison, Figure 1 |
+| kaiyuan-2b-performance.svg (reused) | Open LLM Pretraining Guided by Quantile Benchmarking Heterogeneous Web Corpora | Evaluation of the related Kaiyuan-2B model, from its technical report above; not a separate figure attributed to the NeurIPS paper |
 | mpl-optimized-schedules.png | A Multi-Power Law for Loss Curve Prediction | [arXiv:2503.12811](https://arxiv.org/abs/2503.12811), Figure 1, page 2 |
 | robsa-workflow.png | RoBSA | [ACL Anthology](https://aclanthology.org/2026.acl-long.46/), Figure 6, PDF page 5 |
 | multi-epoch-reuse.png | Larger Datasets Can Be Repeated More | [arXiv:2511.13421](https://arxiv.org/abs/2511.13421), Figure 1, page 2 |
