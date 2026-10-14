@@ -37,7 +37,7 @@ bundle exec jekyll build
 
 Review the local preview, then commit and push this website repository to publish the update. If the blog was already rebuilt, skip the first step. A local import or build alone does not update the live website.
 
-The importer never edits the source project. It copies only the public runtime and referenced assets, not drafts, reviews, build inputs, or full font archives. `_data/prom_blog_import.json` records hashes for checking the snapshot. Obsolete files from the previous import are removed only if their hashes still match; locally modified obsolete files stop the import for review. Noto and Linux Biolinum font notices are included; on another machine, pass `--noto-license` if no system notice or previously imported copy is available.
+The importer never edits the source project. It copies only the public runtime and referenced assets, not drafts, reviews, build inputs, or full font archives. It also refreshes the post's English and Chinese titles from the generated article headings, keeping the homepage, blog index, redirect page, and feed in sync while preserving the other post metadata. `_data/prom_blog_import.json` records hashes for checking the snapshot. Obsolete files from the previous import are removed only if their hashes still match; locally modified obsolete files stop the import for review. Noto and Linux Biolinum font notices are included; on another machine, pass `--noto-license` if no system notice or previously imported copy is available.
 
 ## Preview without port conflicts
 
