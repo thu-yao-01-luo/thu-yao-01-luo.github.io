@@ -80,6 +80,9 @@ h2 { margin: 0; font: 400 1.8rem/1.3 var(--serif); letter-spacing: -.015em; }
 .paper__related a:hover { color: var(--accent); text-decoration: underline; }
 .paper__authors { margin: .45rem 0 0; color: var(--muted); font-size: .875rem; line-height: 1.6; }
 .paper__authors strong { color: var(--ink); font-weight: 650; }
+.paper__author { display: inline-block; }
+.paper__author sup { margin-left: .08em; font-size: .75em; line-height: 0; vertical-align: super; }
+.paper__author-note { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin: .25rem 0 0; color: var(--muted); font-size: .8125rem; line-height: 1.5; }
 .paper__takeaway { margin: .65rem 0 0; line-height: 1.65; }
 .paper__links { display: flex; flex-wrap: wrap; gap: .35rem 1.15rem; margin-top: .7rem; }
 .paper__links a { font-size: .875rem; text-decoration: none; }

@@ -13,13 +13,13 @@
   <meta name="twitter:description" content="Puro-2B 的低成本预训练实践：在 RTX 5090 上训练约 20 亿参数的模型，介绍硬件、FP8、优化器和数据配方，以及复现实验所需的开源材料。">
   <meta name="color-scheme" content="light">
   <title>Puro-2B：普通实验室也能做预训练？</title>
-  <link rel="stylesheet" href="styles.css?v=5a7fcf7e608a">
+  <link rel="stylesheet" href="styles.css?v=8bcaf07d5a2d">
   <link rel="stylesheet" href="elr-explorer.css?v=e4e6b1e2742d">
   <link rel="stylesheet" href="cma-setup.css?v=7d98a7369eb9">
-  <script src="data.js?v=1c6a03dff309" defer></script>
-  <script src="cma-setup.js?v=7bce0856c6b1" defer></script>
-  <script src="app.js?v=0a7aaf76efa5" defer></script>
-  <script src="elr-explorer.js?v=b749d6cc7aab" defer></script>
+  <script src="data.js?v=9e5e25aa4187" defer></script>
+  <script src="cma-setup.js?v=c57ea2099874" defer></script>
+  <script src="app.js?v=af1b6e362929" defer></script>
+  <script src="elr-explorer.js?v=f6fad206b225" defer></script>
   <link rel="stylesheet" href="homepage.css">
   <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
   <link rel="canonical" href="https://kairong.me/blog/prom-technical-report/">
@@ -28,7 +28,7 @@
 <body>
   <a class="skip-link" href="#main-content" data-ui="skip">跳到正文</a>
   <header class="site-header">
-    <nav class="homepage-breadcrumbs" aria-label="Website navigation"><a href="../../">Kairong Luo</a><span aria-hidden="true">/</span><a href="../">Blog</a><span class="homepage-breadcrumbs__separator" aria-hidden="true">/</span><a class="site-title" href="#intro">Puro-2B / 普罗-2B</a></nav>
+    <nav class="homepage-breadcrumbs" aria-label="Website navigation"><a href="../../">Kairong Luo</a><span aria-hidden="true">/</span><a href="../">Blog</a><span class="homepage-breadcrumbs__separator" aria-hidden="true">/</span><a class="site-title" href="#intro">普罗-2B / Puro-2B</a></nav>
     <div class="header-controls">
       <button type="button" class="toc-toggle" aria-expanded="false" aria-controls="toc-panel" data-ui="tocToggle">目录</button>
       <div class="language-switch" role="group" aria-label="Language">
@@ -82,8 +82,8 @@
 <p id="OIl4dAQQCoFWrqxjz0gcjI2sndb" data-source-block="OIl4dAQQCoFWrqxjz0gcjI2sndb"><span data-copy="OIl4dAQQCoFWrqxjz0gcjI2sndb">我们先从硬件选择开始：</span></p>
 <blockquote class="budget-question"><p id="WdSDdTRmmoqQoOxKm1fc5GienVb" data-source-block="WdSDdTRmmoqQoOxKm1fc5GienVb"><span data-copy="WdSDdTRmmoqQoOxKm1fc5GienVb">同样的预算能买到多少算力？</span></p></blockquote>
 <p id="CnNbdPSkLoeo3NxwqpgcBhplnGe" data-source-block="CnNbdPSkLoeo3NxwqpgcBhplnGe"><span data-copy="CnNbdPSkLoeo3NxwqpgcBhplnGe">我们按 H200 的租赁报价，以及 RTX 5090 按五年摊销的硬件成本加电费，计算各自的单卡小时成本（RTX 5090 的核算价格与我们了解到的实际市场租赁价格接近）。在这一口径下，RTX 5090 每美元可提供的 BF16 峰值计算量约为 H200 的 <strong>2.77 倍</strong>。它的单卡峰值算力较低，但卡时成本降得更多，所以同样预算能买到更多计算量。除此之外，RTX 5090 这类消费级显卡，也便于普通实验室采购。</span></p>
-<div class="figure-unit figure-full" id="figure-hardware-cost" data-source-image="GamIdAfY8o2VJHxGSqEceRWxnMh" data-figure-number="5"><div class="figure-toolbar"><button type="button" class="figure-expand" data-zoom-figure="hardware-cost" data-ui="expandFigure" aria-haspopup="dialog" aria-controls="figure-dialog" hidden>放大查看</button><a href="https://arxiv.org/pdf/2608.27370v2#page=9" target="_blank" rel="noopener noreferrer" data-ui="paperFigure">论文原图 ↗</a></div><img class="figure-image" src="assets/hardware-cost.svg?v=93ffe7a2c39d" data-figure="hardware-cost" alt="图 5｜不同显卡的计算价格比值的统计与对比" width="1000" height="280" loading="eager" decoding="async"></div>
-<p class="source-caption" id="ICFIdjMVNolLFIxZNVDcPjWKnDd" data-source-block="ICFIdjMVNolLFIxZNVDcPjWKnDd"><span data-copy="ICFIdjMVNolLFIxZNVDcPjWKnDd"><span class="caption-title">图 5｜不同显卡的计算价格比值的统计与对比</span> <span class="caption-source">（简化自论文 Table 2）</span><span class="caption-detail">租赁报价截至 2026 年 8 月 16 日，RTX 5090 按硬件摊销和电费核算。</span></span></p>
+<div class="figure-unit figure-full" id="figure-hardware-cost" data-source-image="GamIdAfY8o2VJHxGSqEceRWxnMh" data-figure-number="5"><div class="figure-toolbar"><a href="https://arxiv.org/pdf/2608.27370v2#page=9" target="_blank" rel="noopener noreferrer" data-ui="paperTable">论文原表 ↗</a></div><div class="table-scroll hardware-table-scroll" role="region" tabindex="0" aria-labelledby="ICFIdjMVNolLFIxZNVDcPjWKnDd"><table class="hardware-table" lang="en" aria-labelledby="ICFIdjMVNolLFIxZNVDcPjWKnDd"><colgroup><col style="width:18%"><col style="width:11%"><col style="width:11%"><col style="width:13%"><col style="width:20%"><col style="width:12%"><col style="width:15%"></colgroup><thead><tr><th scope="col">GPU</th><th scope="col">BF16<br>TFLOPS</th><th scope="col">FP8<br>TFLOPS</th><th scope="col">GPU<br>memory</th><th scope="col">P2P bandwidth<br>(bidirectional)</th><th scope="col">USD /<br>GPU-hour</th><th scope="col">BF16<br>EFLOP / USD</th></tr></thead><tbody><tr><th scope="row">A100 SXM4</th><td>312</td><td>N/A</td><td>80 GB</td><td>600 GB/s</td><td>$1.79</td><td>0.63</td></tr><tr><th scope="row">H200 SXM5</th><td>989.5</td><td>1979</td><td>141 GB</td><td>900 GB/s</td><td>$4.00</td><td>0.89</td></tr><tr><th scope="row">RTX PRO 6000</th><td>503.8</td><td>1007.6</td><td>96 GB</td><td>128 GB/s</td><td>$1.89</td><td>0.96</td></tr><tr class="hardware-highlight"><th scope="row">RTX 5090</th><td>209.5</td><td>419</td><td>32 GB</td><td>128 GB/s</td><td>$0.31</td><td>2.43</td></tr></tbody></table></div></div>
+<p class="source-caption" id="ICFIdjMVNolLFIxZNVDcPjWKnDd" data-source-block="ICFIdjMVNolLFIxZNVDcPjWKnDd"><span data-copy="ICFIdjMVNolLFIxZNVDcPjWKnDd"><span class="caption-title">表 5｜不同显卡的计算价格比值的统计与对比</span> <span class="caption-source">（简化自论文 Table 2）</span><span class="caption-detail">租赁报价截至 2026 年 8 月 16 日，RTX 5090 按硬件摊销和电费核算。</span></span></p>
 <p id="ARjldh1FboA56sxGpodcD6Uhn8c" data-source-block="ARjldh1FboA56sxGpodcD6Uhn8c"><span data-copy="ARjldh1FboA56sxGpodcD6Uhn8c">但RTX5090只有 32GB 显存，也没有 NVLink，不能直接照搬数据中心 GPU 的训练配置。我们通过驱动和系统配置调整，在节点内启用 PCIe P2P 通信，将 GPU 间单向带宽从 31.5 GB/s 提升到 <strong>56 GB/s</strong>，通信延迟从 14.3 µs 降低到 <strong>0.4 µs</strong>。在节点间，我们启用 GPUDirect RDMA，让 24 卡 AllReduce 总线带宽从 8.87 GB/s 提升到 <strong>19.93 GB/s</strong>。</span><sup class="citations" aria-label="参考文献"><a href="#ref-3" data-citation="3" aria-controls="ref-3" aria-label="参考文献 3">3</a>, <a href="#ref-4" data-citation="4" aria-controls="ref-4" aria-label="参考文献 4">4</a></sup><span class="reference-note team-reference" id="ref-3" data-reference="3" role="note" tabindex="-1" aria-label="参考文献 3"><sup class="reference-number">3</sup><a class="reference-title" href="https://harrychen.xyz/2026/03/22/enable-pcie-p2p-on-rtx-5090/" target="_blank" rel="noopener noreferrer">在 RTX 5090 上启用 PCIe P2P 通信支持</a><span class="reference-venue">Harry Chen’s Blog · 2026-03-22</span></span><span class="reference-note team-reference" id="ref-4" data-reference="4" role="note" tabindex="-1" aria-label="参考文献 4"><sup class="reference-number">4</sup><a class="reference-title" href="https://harrychen.xyz/2026/05/20/enable-gpudirect-rdma-on-rtx-5090/" target="_blank" rel="noopener noreferrer">在 RTX 5090 上启用 GPUDirect RDMA 通信支持</a><span class="reference-venue">Harry Chen’s Blog · 2026-05-20</span></span></p>
 <p id="BRr8dr12eo2E3Ux7fRycZOc0nTb" data-source-block="BRr8dr12eo2E3Ux7fRycZOc0nTb"><span data-copy="BRr8dr12eo2E3Ux7fRycZOc0nTb">我们也针对十亿级参数规模的计算负载与RTX5090的硬件特点优化了训练策略：采用数据并行与流水线并行组合，避免通信频繁的张量并行。接着，我们通过重新分配流水线各阶段的计算量，调整微批次大小，并按显存占用情况均衡放置优化器状态，平衡不同节点的显存负载。通过上述优化，综合MFU能超过70%，消费卡的性价比通过这些工程适配与系统优化转化为训练成本的优势。</span></p><details class="evidence-card" id="evidence-hardware"><summary data-evidence-label="hardware">效率收益与实验依据</summary><div data-evidence="hardware"></div></details>
 <p id="OkcedURcqoIXYTxDHhDclYcknjc" data-source-block="OkcedURcqoIXYTxDHhDclYcknjc"><span data-copy="OkcedURcqoIXYTxDHhDclYcknjc">有了更划算的算力，接下来我们尝试用 FP8 加快训练。</span></p>
@@ -114,7 +114,7 @@
     <table class="elr-table">
       <caption class="sr-only" data-elr-text="table">Muon、MuonH 与 Muon-ELR 的学习率、范数及更新几何</caption>
       <colgroup><col class="elr-case-column"><col><col><col><col><col class="elr-geometry-column"></colgroup>
-      <thead><tr><th scope="col">Optimizer</th><th scope="col">Ordinary LR<span>η<sub>t</sub></span></th><th scope="col">Weight norm<span>‖W<sub>t</sub>‖<sub>F</sub></span></th><th scope="col">Update norm<span data-elr-text="beforeLR">乘学习率之前</span></th><th scope="col">Effective LR<span>ρ<sub>t</sub></span></th><th scope="col">Update geometry<span data-elr-text="schematic">切向更新示意</span></th></tr></thead>
+      <thead><tr><th scope="col">Optimizer</th><th scope="col">Scalar LR<span>η<sub>t</sub></span></th><th scope="col">Weight norm<span>‖W<sub>t</sub>‖<sub>F</sub></span></th><th scope="col">Update norm<span data-elr-text="beforeLR">乘学习率之前</span></th><th scope="col">Effective LR<span>ρ<sub>t</sub></span></th><th scope="col">Update geometry<span data-elr-text="schematic">切向更新示意</span></th></tr></thead>
       <tbody id="elr-rows"></tbody>
     </table>
   </div>

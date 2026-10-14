@@ -1,0 +1,14 @@
+{% assign publication = include.post %}
+{% assign author_names = publication.authors | split: ',' %}
+<p class="paper__authors">
+  {%- for author in author_names -%}
+    {%- assign author_name = author | strip -%}
+    <span class="paper__author">{% if author_name == site.author.name %}<strong>{{ author_name | escape }}</strong>{% else %}{{ author_name | escape }}{% endif %}{% if publication.co_first_authors contains author_name %}<sup aria-label="co-first author">*</sup>{% endif %}{% if publication.corresponding_authors contains author_name %}<sup aria-label="co-corresponding author">†</sup>{% endif %}</span>{% unless forloop.last %}, {% endunless %}
+  {%- endfor -%}
+</p>
+{% if publication.co_first_authors or publication.corresponding_authors %}
+  <p class="paper__author-note">
+    {% if publication.co_first_authors %}<span><sup>*</sup> Co-first authors</span>{% endif %}
+    {% if publication.corresponding_authors %}<span><sup>†</sup> Co-corresponding authors</span>{% endif %}
+  </p>
+{% endif %}

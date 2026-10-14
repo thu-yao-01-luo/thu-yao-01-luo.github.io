@@ -8,7 +8,7 @@ layout: academic
     <p class="paper__meta"><span class="paper__venue">{{ page.venue }}{% if page.category == 'manuscripts' %} · {{ page.year }}{% endif %}</span>{% if page.distinction %}<span class="paper__distinction">{{ page.distinction }}</span>{% endif %}</p>
     <h1>{{ page.title }}</h1>
     {% if page.related_label %}<p class="paper__related">(<a href="{{ page.related_url | relative_url }}">{{ page.related_label }}</a>)</p>{% endif %}
-    <p class="paper__authors">{{ page.authors | replace: 'Kairong Luo', '<strong>Kairong Luo</strong>' }}</p>
+    {% include publication-authors.html post=page %}
     <div class="paper__links">{% for link in page.links %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% endfor %}</div>
   </header>
   <p class="publication-takeaway">{{ page.summary }}</p>

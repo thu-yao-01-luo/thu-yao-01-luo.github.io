@@ -8,6 +8,9 @@ date: 2025-11-24
 year: 2026
 venue: "ICLR 2026"
 authors: "Kairong Luo, Zhenbo Sun, Haodong Wen, Xinyu Shi, Jiarui Cui, Chenyi Dang, Kaifeng Lyu, Wenguang Chen"
+corresponding_authors:
+  - Kaifeng Lyu
+  - Wenguang Chen
 highlight: "Oral Presentation (Top 1.2%), ICLR 2026"
 summary: "Learning-rate decay weakens late-arriving high-quality data, while moderate decay and curriculum model averaging recover its training benefits."
 distinction: "Oral"

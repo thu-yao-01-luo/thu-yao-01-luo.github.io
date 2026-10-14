@@ -8,6 +8,9 @@ date: 2025-03-17
 year: 2025
 venue: "ICLR 2025"
 authors: "Kairong Luo, Haodong Wen, Shengding Hu, Zhenbo Sun, Zhiyuan Liu, Maosong Sun, Kaifeng Lyu, Wenguang Chen"
+corresponding_authors:
+  - Kaifeng Lyu
+  - Wenguang Chen
 highlight: "Accepted by ICLR 2025"
 summary: "A multi-power law predicts loss under unseen learning-rate schedules, turning schedule selection from trial and error into a guided search."
 topic: "Scaling laws"

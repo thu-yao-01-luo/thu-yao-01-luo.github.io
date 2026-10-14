@@ -6,6 +6,9 @@ permalink: /publication/quantile-benchmarking
 year: 2026
 venue: "NeurIPS 2026"
 authors: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, Wenguang Chen"
+co_first_authors:
+  - Kairong Luo
+  - Zhenbo Sun
 highlight: "NeurIPS 2026 Spotlight"
 distinction: "Spotlight"
 topic: "Data quality"

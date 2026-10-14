@@ -33,10 +33,12 @@
   const ui = {
     skip: ['跳到正文', 'Skip to article'],
     tocToggle: ['目录', 'Contents'], contents: ['章节目录', 'Contents'], intro: ['开篇', 'Introduction'],
-    references: ['参考文献', 'Reference'],
-    paperFigure: ['论文原图 ↗', 'Paper figure ↗'],
-    paperLeft: ['左图原图 ↗', 'Left original ↗'], paperRight: ['右图原图 ↗', 'Right original ↗'],
+    references: ['参考文献', 'References'],
+    paperFigure: ['论文原图 ↗', 'Figure in the paper ↗'],
+    paperTable: ['论文原表 ↗', 'Table in the paper ↗'],
+    paperLeft: ['左图原图 ↗', 'Original left panel ↗'], paperRight: ['右图原图 ↗', 'Original right panel ↗'],
     backToFigure: ['返回图', 'Back to Figure'], paperSources: ['论文：', 'Paper:'],
+    backToTable: ['返回表', 'Back to Table'],
     expandFigure: ['放大查看', 'Enlarge figure'],
     zoomIn: ['+ 放大', '+ Zoom in'], zoomOut: ['− 缩小', '− Zoom out'],
     fitFigure: ['适应窗口', 'Fit to window'],
@@ -44,7 +46,7 @@
     swipeModels: ['↔ 左右滑动查看全部 15 个模型', '↔ Scroll horizontally to see all 15 models'],
     swipeFactors: ['↔ 左右滑动查看完整图表', '↔ Scroll horizontally to see the full chart'],
     switchModel: ['切换模型', 'Switch model'], switchAblation: ['切换配置', 'Switch configuration'],
-    costScope: ['上述统计，只计正式预训练 GPU 成本，不代表项目总成本。', 'The figures above cover only GPU compute for formal pretraining runs, not total project costs.'],
+    costScope: ['上述统计，只计正式预训练 GPU 成本，不代表项目总成本。', 'The figures above cover only GPU compute for main pretraining runs, not total project costs.'],
     chooseModel: ['模型', 'Model'],
     chooseModelPlaceholder: ['选择模型', 'Choose a model'],
     chooseAblation: ['实验配置', 'Training setup'],
@@ -52,10 +54,10 @@
     scalingGuide: ['UD、CD 与 CMA 见 ', 'For UD, CD, and CMA, see '],
     cmaSection: ['第4节（CMA）', 'Section 4 (CMA)'],
     udFinalFigure: [`UD final（图 ${data.figureLabels['cma-results'].number}）`, `UD final (Figure ${data.figureLabels['cma-results'].number})`],
-    cmaSetupTitle: ['训练过程示意', 'Training setup schematic'],
-    cmaSetupSwipe: ['↔ 左右滑动查看完整示意图', '↔ Scroll sideways to view the full schematic'],
-    cmaSetupNote: ['色条示意各数据源内部的相对质量。标有步数的是实际检查点，其余以 θ₁…θₙ 表示。', 'Colors illustrate relative quality within each source. Recorded checkpoints have step labels. Other averaging windows use θ₁…θₙ.'],
-    ablationKey: ['UD：随机数据顺序＋学习率衰减。\nCD：课程顺序＋学习率衰减。\nCDC：CD 后接恒定学习率续训。\nCMA：平均续训末端的检查点参数。\n215k/218k 指从第 215,000/218,000 步恢复，final/avg 分别表示末个检查点/检查点参数平均。', 'UD: shuffled data with LR decay.\nCD: curriculum order with LR decay.\nCDC: CD followed by constant-LR continuation.\nCMA: parameter averaging over late continuation checkpoints.\n215k/218k: resume at step 215,000/218,000. Final/avg: final checkpoint/checkpoint parameter average.'],
+    cmaSetupTitle: ['训练过程示意', 'Training setup at a glance'],
+    cmaSetupSwipe: ['↔ 左右滑动查看完整示意图', '↔ Scroll horizontally to view the full schematic'],
+    cmaSetupNote: ['色条示意各数据源内部的相对质量。标有步数的是实际检查点，其余以 θ₁…θₙ 表示。', 'Colors show relative sample quality within each source. Checkpoints with recorded step numbers are labeled explicitly. Other checkpoints are shown as θ₁…θₙ.'],
+    ablationKey: ['UD：随机数据顺序＋学习率衰减。\nCD：课程顺序＋学习率衰减。\nCDC：CD 后接恒定学习率续训。\nCMA：平均续训末端的检查点参数。\n215k/218k 指从第 215,000/218,000 步恢复，final/avg 分别表示末个检查点/检查点参数平均。', 'UD: shuffled data with LR decay.\nCD: curriculum order with LR decay.\nCDC: CD followed by constant-LR continuation.\nCMA: parameter averaging over late continuation checkpoints.\n215k/218k: resume at step 215,000/218,000. final / avg: the final checkpoint / the average of checkpoint parameters.'],
     ablationRecord: [`图 ${data.figureLabels['cma-results'].number} · 实验训练配置`, `Figure ${data.figureLabels['cma-results'].number} · Training configuration`],
     ablationOrigin: ['各组从同一个第一阶段 checkpoint 出发，使用同一份第二阶段数据。图中 step 为全局优化器步数。', 'All configurations start from the same Phase 1 checkpoint and use the same Phase 2 data pool. Step numbers are global optimizer steps.'],
     ablationSource: ['续训与模型平均配置（附录 H.3）↗', 'Continuation and checkpoint averaging (Appendix H.3) ↗'],
@@ -63,31 +65,31 @@
     dataOrder: ['数据排布', 'Data order'], learningRate: ['学习率与续训', 'Learning rate and continuation'],
     checkpointSelection: ['使用的 checkpoint', 'Selected checkpoints'], modelAveraging: ['模型平均', 'Model averaging'],
     table7: ['完整成本对照（Table 7）', 'Full cost comparison (Table 7)'],
-    record: ['模型成本与评测记录', 'Model cost and evaluation record'],
-    accounting: ['价格与汇率固定采用报告 Table 6，1 USD = 6.8067 CNY，非当前实时汇率。上述统计，只计正式预训练 GPU 成本，不代表项目总成本。', 'Prices and exchange rates are fixed to Table 6: 1 USD = 6.8067 CNY, not a live exchange rate. The figures above cover only GPU compute for formal pretraining runs, not total project costs.'],
+    record: ['模型成本与评测记录', 'Model cost and benchmark results'],
+    accounting: ['价格与汇率固定采用报告 Table 6，1 USD = 6.8067 CNY，非当前实时汇率。上述统计，只计正式预训练 GPU 成本，不代表项目总成本。', 'Prices and the exchange rate follow Table 6 in the report: 1 USD = 6.8067 CNY. This is a fixed accounting assumption, not a live exchange rate. The figures above cover only GPU compute for main pretraining runs, not total project costs.'],
     modelName: ['模型名称', 'Model'], type: ['开放类型', 'Release type'],
     originalLink: ['原文链接', 'Original source'], method: ['估算 / 测量方法', 'Estimation / measurement method'],
-    price: ['价格基准', 'Price basis'], hours: ['GPU 卡时', 'GPU-hours'],
+    price: ['价格基准', 'Pricing basis'], hours: ['GPU 卡时', 'GPU-hours'],
     usd: ['美元成本', 'Cost in USD'], rmb: ['人民币成本估计', 'Estimated cost in CNY'],
     average: ['平均性能', 'Average performance'],
-    openWeight: ['开源权重', 'Open weights'], fullyOpen: ['全流程开源（模型+数据集）', 'End-to-end open (model + data)'],
-    reported: ['报告算力 / 时间', 'Reported compute / time'], estimated: ['估算算力', 'Estimated compute'],
-    finalPuro: ['Puro 训练结果', 'Puro training results'], frontier: ['其他模型 Pareto 前沿', 'Other-model Pareto frontier'],
+    openWeight: ['开源权重', 'Open weights'], fullyOpen: ['全流程开源（模型+数据集）', 'Fully open (model + data)'],
+    reported: ['报告算力 / 时间', 'Reported compute or runtime'], estimated: ['估算算力', 'Estimated compute'],
+    finalPuro: ['Puro 训练结果', 'Puro training results'], frontier: ['其他模型 Pareto 前沿', 'Pareto frontier of other models'],
     costAxis: ['复现成本（美元，对数刻度）', 'Reproduction cost (USD, log scale)'],
     scoreAxis: ['15 项任务平均分（%）', 'Average score over 15 tasks (%)'],
     openDetails: ['点击查看成本与 15 项评分', 'Click for cost details and 15 benchmark scores'],
-    tooltipAverage: ['15 项平均分', 'Average · 15 tasks'],
-    tooltipCost: ['复现成本 · USD', 'Cost · USD'],
-    tooltipModelHint: ['点击模型查看成本与 15 项评分', 'Click marker for costs & 15 scores'],
+    tooltipAverage: ['15 项平均分', '15-task average'],
+    tooltipCost: ['复现成本 · USD', 'Reproduction cost · USD'],
+    tooltipModelHint: ['点击模型查看成本与 15 项评分', 'Select a model for costs and 15 benchmark scores'],
     costChart: ['模型性能与复现成本。所有方块、圆圈和星形均可点击', 'Model performance versus reproduction cost. Every square, circle, and star is interactive'],
-    efficiencyChart: ['各环节效率收益。点击柱子跳至实验依据', 'Component efficiency gains. Select a bar to jump to its evidence'],
+    efficiencyChart: ['各环节效率收益。点击柱子跳至实验依据', 'Efficiency gains across the pipeline. Select a bar to see the supporting experiments'],
     multiplierAxis: ['相对成本效率（×）', 'Relative cost efficiency (×)'],
     hardware: ['硬件', 'Hardware'], precision: ['分块 FP8', 'Blockwise FP8'], optimizer: ['MuonH', 'MuonH'], joint_phase2_recipe: ['阶段 2 / CMA', 'Phase 2 / CMA'],
     evidence: ['效率收益与实验依据', 'Efficiency gains and supporting experiments'],
-    checkpointRecord: ['这组实验使用随机排布的数据（UD）。不同训练预算下的结果见', 'This run uses uniformly shuffled data (UD). For results at different training budgets, see'],
+    checkpointRecord: ['这组实验使用随机排布的数据（UD）。不同训练预算下的结果见', 'This run uses randomly shuffled data (UD). For results at different training budgets, see'],
     checkpointFigure: [`图 ${data.figureLabels['cost-scaling'].number}`, `Figure ${data.figureLabels['cost-scaling'].number}`],
     benchmark: ['Benchmark', 'Benchmark'], score: ['分数（%）', 'Score (%)'],
-    technicalSource: ['技术报告 / 官方模型资料 ↗', 'Technical report / official model source ↗'],
+    technicalSource: ['技术报告 / 官方模型资料 ↗', 'Technical report / official model documentation ↗'],
     close: ['关闭', 'Close'],
     recordSource: ['论文表格 ↗', 'Paper tables ↗'],
     '6ND, model tokens': ['6ND，单模型 token 数', '6ND, model tokens'],
@@ -98,7 +100,7 @@
     'Measured GPU-hours': ['实测 GPU 卡时', 'Measured GPU-hours'],
     'H100 equivalent': ['H100 等效估算', 'H100 equivalent'],
     'A100-80GB rate': ['A100 80GB 等效估算', 'A100 80GB equivalent estimate'],
-    description: ['Puro-2B 的低成本预训练实践：在 RTX 5090 上训练约 20 亿参数的模型，介绍硬件、FP8、优化器和数据配方，以及复现实验所需的开源材料。', 'Pretraining Puro-2B on RTX 5090 GPUs: hardware, FP8 training, optimizer and data recipes, with open materials for reproducing the experiments.'],
+    description: ['Puro-2B 的低成本预训练实践：在 RTX 5090 上训练约 20 亿参数的模型，介绍硬件、FP8、优化器和数据配方，以及复现实验所需的开源材料。', 'Pretraining Puro-2B on a budget with RTX 5090 GPUs. Explore the hardware, FP8, optimizer, and data choices behind the recipe, plus the open resources for reproducing it.'],
   };
   const methodDescriptions = {
     '6ND, model tokens': ['使用 C = 6ND，以对应模型的训练 token 数估算。', 'C = 6ND, using the model-specific training-token count.'],
@@ -130,7 +132,7 @@
     'Qwen3-1.7B-Base': 'N = 1.70B, D = 36T, counting pretraining only.',
     'Gemma-2-2B': 'N = 2.61B, D = 2T.',
     'Gemma-3-1B-PT': 'N = 1.00B, D = 2T.',
-    'Llama-3.2-3B': 'The report lists 460,000 H100 GPU-hours, excluding the separately reported shared family logit-generation cost.',
+    'Llama-3.2-3B': 'The report lists 460,000 H100 GPU-hours. This excludes the separately reported cost of generating logits shared across the model family.',
     'LFM2.5-1.2B-Base': 'N = 1.17B, D = 28T (training tokens used by the model family).',
     'Falcon-H1-Deep-1.5B-Base': 'N = 1.55B, D = 3T (tokens used by the model family). The report states that training used an H100 cluster.',
     'Instella-3B': 'N = 3.11B, D = 4.122575T (4.065T + 57.575B).',
@@ -139,7 +141,7 @@
     'Puro-2B': 'Phase 1: 6,009.46 GPU-hours.\nPhase 2: 16,504.95 GPU-hours.\nTotal: 22,514.41 GPU-hours, excluding queueing, downtime, and other time not spent training.',
     'Puro-2B (UD; $4.4K)': 'This run uses 24 GPUs in Phase 1 and 96 in Phase 2, totaling about 14,262 GPU-hours and $4,365, shown as $4.4K in the plot. The average score is 55.54%.',
     'Yulan-Mini-2.4B': 'N = 2.42B, D = 1.08T. GPU-hours are derived using the reported MFU. A800 costs are estimated at the A100 80GB rate.',
-    'MobileLLM-R1-950M-base': 'The official training table lists 128 GPUs, two pretraining stages of 4–5 days each, and two mid-training stages of 1–2 days each: 30,720–43,008 GPU-hours, using the midpoint of 36,864. The table does not name the GPU model. Costs use the A100 80GB rate.',
+    'MobileLLM-R1-950M-base': 'The official training table lists 128 GPUs, two pretraining stages of 4–5 days each, and two mid-training stages of 1–2 days each: 30,720–43,008 GPU-hours. We use the midpoint, 36,864 GPU-hours. The table does not name the GPU model. Costs use the A100 80GB rate.',
   };
   const evidenceDescriptions = {
     hardware: {
@@ -150,7 +152,7 @@
           '以 1 美元为例，H200 可以运行 1/4 小时，即 0.25 小时，而 RTX 5090 可以运行 1/0.3061 ≈ 3.27 小时。把各自的运行时间乘以峰值算力，再比较两者，得到 (209.5 ÷ 0.3061) ÷ (989.5 ÷ 4) ≈ 2.77。也就是说，虽然 RTX 5090 的单卡峰值算力更低，但价格降得更多，因此相同预算能购买约 2.77 倍的 BF16 峰值计算量。',
         ],
         [
-          'Which GPU buys more BF16 compute for the same budget? The answer depends on both its compute throughput and how long the budget lets it run. The H200 provides 989.5 TFLOP/s of peak BF16 throughput at $4 per GPU-hour. The RTX 5090 provides 209.5 TFLOP/s at about $0.3061 per GPU-hour. The RTX 5090 rate comes from our hardware and electricity costs, about CNY 12,000 per month for an eight-GPU node.',
+          'Which GPU gives you more BF16 compute for the same budget? The answer depends on both its compute throughput and how long the budget lets it run. The H200 provides 989.5 TFLOP/s of peak BF16 throughput at $4 per GPU-hour. The RTX 5090 provides 209.5 TFLOP/s at about $0.3061 per GPU-hour. The RTX 5090 rate comes from our hardware and electricity costs, about CNY 12,000 per month for an eight-GPU node.',
           'For $1, the H200 can run for 1/4 = 0.25 hours, while the RTX 5090 can run for 1/0.3061 ≈ 3.27 hours. Multiplying each runtime by its peak throughput and taking the ratio gives (209.5 ÷ 0.3061) ÷ (989.5 ÷ 4) ≈ 2.77. The RTX 5090 has lower peak throughput per GPU, but its price is lower by an even larger factor. The same budget therefore buys about 2.77 times as much peak BF16 compute.',
         ],
       ],
@@ -171,8 +173,8 @@
         ],
         [
           'FP8 runs faster but uses lower numerical precision. To estimate how much training time it saves, we consider both the number of tokens processed per second and the training compute needed to reach the same validation loss.',
-          'We first compare BF16 and blockwise FP8 at five model sizes. FP8 validation loss is about 0.003–0.004 higher than BF16. Using the fitted loss–compute curves, we translate this gap into the extra compute needed to match the loss and find that FP8 still retains about 98% of the compute efficiency.',
-          'We then account for runtime throughput. On the 1.7B model, measured FP8 throughput is about 1.36 times that of BF16. Combining this speed gain with the compute-efficiency factor gives a net gain of about 1.34 times, corresponding to an estimated 25.2% reduction in GPU-hours at the same validation loss.',
+          'We first compare BF16 and blockwise FP8 at five model sizes. FP8’s validation loss is about 0.003–0.004 higher than BF16’s. Using the fitted loss–compute curves, we translate this gap into the extra compute needed to match the loss and find that FP8 still retains about 98% of the compute efficiency.',
+          'We then account for runtime throughput. On the 1.7B model, measured FP8 throughput is about 1.36 times that of BF16. Combining this throughput gain with the compute-efficiency factor gives a net gain of about 1.34 times, corresponding to an estimated 25.2% reduction in GPU-hours at the same validation loss.',
         ],
       ],
       figure: 'fp8-results',
@@ -189,7 +191,7 @@
           '在同一个验证损失处，分别读取两条曲线对应的 FLOPs。Muon 所需计算量约为 MuonH 的 1.19 倍。换一种说法，如果 Muon 需要 100 份计算量，MuonH 大约需要 84 份，节省约 16.1%。',
         ],
         [
-          'How much less compute does MuonH need than Muon to reach the same validation loss? We train both optimizers at the same set of model sizes, use blockwise FP8 for both, and tune the Muon baseline. We then fit a loss–compute curve to each set of results.',
+          'How much less compute does MuonH need than Muon to reach the same validation loss? We train models at the same set of sizes with each optimizer, use blockwise FP8 in both cases, and tune the Muon baseline. We then fit a loss–compute curve to each set of results.',
           'At a given validation loss, we read off the FLOPs required by each curve. Muon needs about 1.19 times as much compute as MuonH. In other words, if Muon needs 100 units of compute, MuonH needs about 84, saving roughly 16.1%.',
         ],
       ],
@@ -209,8 +211,8 @@
         ],
         [
           'The complete CMA model averages 57.81 across 15 benchmarks at a pretraining compute cost of about $6,900. What would it cost to reach that score with Uniform Data (UD)?',
-          'Starting from the same Phase 1 checkpoint, we train UD with several Phase 2 budgets and fit the Puro Cost Scaling Law to the results. Extrapolating the fitted curve to 57.81 gives an estimated UD cost of about $16,600. At the same score, the cost ratio is therefore $16,600 ÷ $6,900 ≈ 2.40. CMA costs about 42% of the UD estimate.',
-          `This CMA run first uses curriculum ordering with linear LR decay, then resumes checkpoint 218,000 at a constant LR equal to its value at that step. The final model averages parameters from the last six continuation checkpoints. Figure ${data.figureLabels['cma-results'].number} compares combinations of shuffled or curriculum data, constant-LR continuation, and parameter averaging. Select a bar to inspect the continuation start and the checkpoints averaged.`,
+          'Starting from the same Phase 1 checkpoint, we run Phase 2 with randomly shuffled data at several budgets and fit the Puro Cost Scaling Law to the results. Extrapolating the fitted curve to 57.81 gives an estimated UD cost of about $16,600. At the same score, the cost ratio is therefore $16,600 ÷ $6,900 ≈ 2.40. CMA costs about 42% of the UD estimate.',
+          `We first train on curriculum-ordered data with linear LR decay, then resume from the checkpoint at step 218,000, keeping the learning rate at its value at that step. The final model uses the average parameters of the last six continuation checkpoints. Figure ${data.figureLabels['cma-results'].number} compares combinations of shuffled or curriculum data, constant-LR continuation, and parameter averaging. Select a bar to see where training resumes and which checkpoints are averaged.`,
         ],
       ],
       figure: 'cma-results',
@@ -317,10 +319,10 @@
     window.PuroCMA.render(record);
     const order = record.order === 'UD' ? localized([
       '随机数据排布（Uniform Data，UD）：将第二阶段的同一份数据全局打乱后训练。',
-      'Uniform Data (UD): globally shuffle the shared Phase 2 data pool before training.',
+      'Uniform Data (UD): the full Phase 2 data pool is randomly shuffled before training.',
     ]) : localized([
       '课程排布数据（Curriculum Data，CD）：有质量评分的样本在各数据源内部从低质量到高质量排列，无评分的数据保持固定随机顺序，再按训练进度混合各来源。因此，高质量数据更多地出现在训练后段。',
-      'Curriculum Data (CD): order scored samples from lower to higher quality within each source, keep a fixed random order for unscored data, and mix sources at matching points in their progress. Higher-quality data therefore appear later in training.',
+      'Curriculum Data (CD): samples with quality scores are ordered from lower to higher quality within each source. Unscored samples keep a fixed random order. Blocks from the different sources are mixed at the same relative positions in their sequences, so higher-quality samples appear later in training.',
     ]);
     let schedule = localized([
       '第二阶段采用线性学习率衰减，训练至结束。',
@@ -330,7 +332,7 @@
       const step = numeric(record.resumeStep);
       schedule = localized([
         `先使用课程顺序的数据，并采用线性学习率衰减。随后，从第 ${step} 步保存的 checkpoint 恢复训练，继续读取课程数据，将学习率保持为该步的值，不再衰减。`,
-        `First train on curriculum-ordered data with linear learning-rate decay. Then resume from the checkpoint saved at step ${step}, continue reading curriculum data, and keep the learning rate at its value at that step instead of decaying it further.`,
+        `First train on curriculum-ordered data with linear learning-rate decay. Then resume from the checkpoint saved at step ${step}, continue training on the remaining curriculum-ordered data, and hold the learning rate at that checkpoint’s value rather than decaying it further.`,
       ]);
       if (record.baseLr) {
         schedule += localized([
@@ -367,7 +369,7 @@
     if (record.averaging) {
       averaging = localized([
         '对这些 checkpoint 中对应位置的参数求平均（SMA），并用平均后的模型评测。优化器状态不参与平均。',
-        'Average corresponding parameters across these checkpoints (SMA), then evaluate the resulting model. Optimizer states are not averaged.',
+        'Take the arithmetic mean of corresponding model parameters across these checkpoints (SMA), then evaluate the averaged model. Optimizer states are not averaged.',
       ]);
     }
     const fields = [['dataOrder', escaped(order)], ['learningRate', escaped(schedule)], ['checkpointSelection', checkpoints], ['modelAveraging', averaging]];
@@ -554,8 +556,9 @@
       document.querySelector(`[data-evidence-label="${factor.factor}"]`).textContent = `${factor.multiplier.toFixed(2)}× · ${text('evidence')}`;
       const paragraphs = localized(details.paragraphs).map(paragraph => `<p>${escaped(paragraph)}</p>`).join('');
       const sources = details.sources.map(source => `<a href="https://arxiv.org/pdf/2608.27370v2#page=${source.page}" target="_blank" rel="noopener noreferrer">${escaped(localized(source.label))} ↗</a>`).join('');
-      const figureNumber = data.figureLabels[details.figure].number;
-      document.querySelector(`[data-evidence="${factor.factor}"]`).innerHTML = `<p class="evidence-baseline">${escaped(localized(details.comparison))}</p>${paragraphs}<p class="evidence-links"><a href="#figure-${details.figure}">${text('backToFigure')} ${figureNumber} ↑</a><span class="evidence-sources"><span>${text('paperSources')}</span>${sources}</span></p>`;
+      const figureLabel = data.figureLabels[details.figure];
+      const backLabel = figureLabel.kind === 'table' ? 'backToTable' : 'backToFigure';
+      document.querySelector(`[data-evidence="${factor.factor}"]`).innerHTML = `<p class="evidence-baseline">${escaped(localized(details.comparison))}</p>${paragraphs}<p class="evidence-links"><a href="#figure-${details.figure}">${text(backLabel)} ${figureLabel.number} ↑</a><span class="evidence-sources"><span>${text('paperSources')}</span>${sources}</span></p>`;
     });
   }
 

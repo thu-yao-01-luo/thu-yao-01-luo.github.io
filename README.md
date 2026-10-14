@@ -6,6 +6,7 @@ The main pages use a lightweight Jekyll layout; the original Academic Pages docu
 
 - `_pages/about.md`: short biography and homepage structure.
 - `_publications/`: canonical publication records, including `year`, `summary` (one sentence), `distinction`, and `featured_order`.
+- Add `co_first_authors` and `corresponding_authors` lists using names exactly as written in `authors`; the shared author component renders `*` and `†` consistently on the homepage, publication pages, and CV. Keep citation author strings unmarked.
 - `_data/cv.json`: education, honors, teaching, service, and the content-update date. Both CV routes read this file; publication lists read the collection directly.
 - `_posts/`: blog metadata and future posts. The old template examples are unpublished.
 - `assets/css/academic.css` and `_layouts/academic.html`: shared appearance and navigation.
@@ -17,14 +18,26 @@ The former Markdown-to-JSON converter refuses to overwrite the data-backed CV. C
 
 The Blog navigation and homepage entry link to `/blog/prom-technical-report/`. This self-contained copy preserves the original Chinese/English article, figures, fonts, and interactive scripts. Only its navigation and canonical URL are adapted to this website. `/blog/puro-2b/` redirects to the full article.
 
-To refresh it from the current source project:
+This is a manual snapshot, not an iframe, submodule, or live connection. Editing or pushing the source repository does **not** update this website automatically; there is no sync watcher or cross-repository workflow. The importer reads the generated HTML and assets in the local source checkout, including uncommitted changes, rather than fetching a remote branch.
+
+If article source files changed, first rebuild the blog in its own repository:
 
 ```bash
+cd /root/Prom-Technical-Report
+python3 blog/scripts/build.py
+```
+
+Then import the generated files and rebuild this website:
+
+```bash
+cd /root/thu-yao-01-luo.github.io
 python3 scripts/import_prom_blog.py /root/Prom-Technical-Report/blog
 bundle exec jekyll build
 ```
 
-The importer never edits the source project. It copies only the public runtime and referenced assets, not drafts, reviews, build inputs, or full font archives. `_data/prom_blog_import.json` records hashes for checking the snapshot. Noto and Linux Biolinum font notices are included; on another machine, pass `--noto-license` if no system notice or previously imported copy is available.
+Review the local preview, then commit and push this website repository to publish the update. If the blog was already rebuilt, skip the first step. A local import or build alone does not update the live website.
+
+The importer never edits the source project. It copies only the public runtime and referenced assets, not drafts, reviews, build inputs, or full font archives. `_data/prom_blog_import.json` records hashes for checking the snapshot. Obsolete files from the previous import are removed only if their hashes still match; locally modified obsolete files stop the import for review. Noto and Linux Biolinum font notices are included; on another machine, pass `--noto-license` if no system notice or previously imported copy is available.
 
 ## Preview without port conflicts
 

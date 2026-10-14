@@ -8,6 +8,10 @@ date: 2025-11-17
 year: 2026
 venue: "ICLR 2026"
 authors: "Tingkai Yan, Haodong Wen, Binghui Li, Kairong Luo, Wenguang Chen, Kaifeng Lyu"
+co_first_authors:
+  - Tingkai Yan
+  - Haodong Wen
+  - Binghui Li
 highlight: "ICLR 2026"
 topic: "Data reuse"
 summary: "Theory and LLM experiments show why larger datasets can be repeated more: useful reuse depends on both dataset size and distribution."

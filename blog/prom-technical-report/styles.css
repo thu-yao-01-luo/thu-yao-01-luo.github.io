@@ -69,6 +69,8 @@ button[aria-pressed="true"] { color: var(--link); background: #eaf1f5; border-co
 .article:focus { outline: none; }
 .article-section { scroll-margin-top: calc(var(--header-height) + 30px); }
 .article h1 { margin: 0 0 1.6rem; color: #192a36; font-size: clamp(1.75rem, 2.3vw, 2.25rem); font-weight: 700; line-height: 1.5; letter-spacing: -.02em; }
+html[lang="en"] .article h1 { text-wrap: balance; }
+html[lang="en"] .article h1 em { white-space: nowrap; }
 .article-heading { margin: 0 0 1.6rem; }
 .article .article-heading h1 { margin-bottom: .45rem; }
 .article .article-subtitle { margin: 0; color: var(--muted); font-size: clamp(1.125rem, 1.5vw, 1.25rem); font-weight: 400; line-height: 1.7; }
@@ -191,6 +193,12 @@ button[aria-pressed="true"] { color: var(--link); background: #eaf1f5; border-co
 .cost-ledger { margin: .5rem 0 1rem; font-size: .875rem; }
 summary { padding: .5rem 0; color: var(--link); }
 .table-scroll { overflow: auto; max-width: 100%; }
+.hardware-table-scroll { margin: .4rem 1.2% .3rem; scrollbar-width: thin; }
+.hardware-table { width: 100%; min-width: 660px; border-collapse: collapse; table-layout: fixed; font-family: var(--plot); font-size: .9375rem; line-height: 1.25; color: #202a31; }
+.hardware-table th, .hardware-table td { padding: .75rem .5rem; border: 1px solid #c4cbd0; text-align: left; white-space: nowrap; background: var(--paper); }
+.hardware-table thead th { padding-block: .25rem; background: #eceff1; color: #a43f1b; font-weight: 700; }
+.hardware-table tbody th { font-weight: 400; }
+.hardware-table .hardware-highlight > * { background: #f9ded3; font-weight: 700; }
 .cost-table, .benchmark-table { width: 100%; border-collapse: collapse; font-family: var(--plot); font-size: 1rem; line-height: 1.6; font-variant-numeric: tabular-nums; }
 .cost-table { min-width: 1130px; margin: .8rem 0; }
 .cost-table caption { text-align: left; font-size: .9375rem; font-weight: 600; padding-bottom: .5rem; }

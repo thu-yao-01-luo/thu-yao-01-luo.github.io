@@ -17,7 +17,7 @@
     </p>
     <h3 class="paper__title"><a href="{{ paper.url | relative_url }}">{{ paper.title }}</a></h3>
     {% if paper.related_label %}<p class="paper__related">(<a href="{{ paper.related_url | relative_url }}">{{ paper.related_label }}</a>)</p>{% endif %}
-    <p class="paper__authors">{{ paper.authors | replace: 'Kairong Luo', '<strong>Kairong Luo</strong>' }}</p>
+    {% include publication-authors.html post=paper %}
     {% unless include.compact %}<p class="paper__takeaway">{{ paper.summary }}</p>{% endunless %}
     <div class="paper__links">
       {% if paper.links %}

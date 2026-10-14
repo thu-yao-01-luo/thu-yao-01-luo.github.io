@@ -3,7 +3,7 @@
   "imported_on": "2026-10-14",
   "article_url": "/blog/prom-technical-report/",
   "source_sha256": {
-    "app.js": "0a7aaf76efa5badee3330bf5e48038b37a8dc2ba626cde42e731d112c930b5d2",
+    "app.js": "af1b6e362929a4e640c4165c39c1be48cdfa7c16bdb2e30426edffd2a156ad12",
     "assets/cma-ablation.svg": "bbb83297199d39693fb542923dede577e42fd9e4a6c44e4418f981e95bea27e8",
     "assets/cma-continuation.svg": "be963cee76227104517cd09c7a9d335aefa42604140636ef84b97aa6634555ac",
     "assets/cost-quality.svg": "d9372999ed642a4c80f9b48ac6a7724a364403255b14f92250689785241254fb",
@@ -18,7 +18,6 @@
     "assets/fonts/NotoSansCJKsc-subset.woff2": "772a656a21072f0a6be53efc00343837a39ff9c2d8af14e304e3bb7ca7902fcd",
     "assets/fp8-efficiency.svg": "cfa484e5e75bcb599ebfb19b86f17d7f3dd364ba0eb7054eff14d2097a7a1e9f",
     "assets/fp8-framework.svg": "4b44766e46c753ee8e7d3531264bda318ee291873632c7c37ae2eaad731df8f2",
-    "assets/hardware-cost.svg": "93ffe7a2c39d240b211cffecc3623768cf462cec6756278e99df654379b4ee42",
     "assets/lr-design.svg": "6badfc1d964ef9821623326b9665d7e9f91dea2787d18edbe00ae08cc2bab5f9",
     "assets/muonh-efficiency.svg": "42dc6fc03641a67c8a5032903360f960eeafcca9bc849ef3d3aca6c1e2ddb653",
     "assets/muonh-elr.svg": "7d20349122aec4434e9ea92d2f0b795d115d0f15a59762ef57bf44dd6b464554",
@@ -28,15 +27,15 @@
     "assets/proxy-protocol.svg": "bf05ba78102f7f2cd2daa892fc9cfc188e14844de63d0b23a64fa7ca2fe9faac",
     "assets/sources/curriculum-vs-lr.pdf": "338b5169636bf278bce577fe142bdb836e7b97adc41ecd325aa8b0a4c2482c9e",
     "cma-setup.css": "7d98a7369eb9e46b1c122a526fb55e439dda96085649f4df8f798cb3da046733",
-    "cma-setup.js": "7bce0856c6b136db66e5d00aa06b50a43f9dd06f4a6c0606f5297612710c1249",
-    "data.js": "1c6a03dff3096b3a421cac9130154bb68ebcae448a2f48d8733345ec28b858d4",
+    "cma-setup.js": "c57ea20998749173adabad749409a2fedef1259db6fd8ef3cd4229d10bdcd777",
+    "data.js": "9e5e25aa418788153901843e512e02a05fd021f9a2a1e74cc7c13ff63ee581b2",
     "elr-explorer.css": "e4e6b1e2742d3c5c5471237456987df2571fb9e9ff6f201be4d1b002410ab4fd",
-    "elr-explorer.js": "b749d6cc7aab078ceff10cd166ff1d5172388111d837ba1c36037fbab4aa4030",
-    "index.html": "bd00ec57f8463abbdceac27ab800965cf3792b71fd1fca545df8cd5e8d7fb0c0",
-    "styles.css": "5a7fcf7e608a88be584427047272817bb7ca299db8d7b7365c45609db0b32bea"
+    "elr-explorer.js": "f6fad206b225aced0eb3d6bacdf8800615851d7d489240d9872988232bc3696d",
+    "index.html": "c8fec11620b73195a10263e48d9c1e3281aeb6000ee69a89a103770a30f974ee",
+    "styles.css": "8bcaf07d5a2d73fdf3af605ca6b7eeff504d3210e8bdf9761828dedf3ec9479f"
   },
   "imported_sha256": {
-    "app.js": "0a7aaf76efa5badee3330bf5e48038b37a8dc2ba626cde42e731d112c930b5d2",
+    "app.js": "af1b6e362929a4e640c4165c39c1be48cdfa7c16bdb2e30426edffd2a156ad12",
     "assets/cma-ablation.svg": "bbb83297199d39693fb542923dede577e42fd9e4a6c44e4418f981e95bea27e8",
     "assets/cma-continuation.svg": "be963cee76227104517cd09c7a9d335aefa42604140636ef84b97aa6634555ac",
     "assets/cost-quality.svg": "d9372999ed642a4c80f9b48ac6a7724a364403255b14f92250689785241254fb",
@@ -52,7 +51,6 @@
     "assets/fonts/NotoSansCJKsc-subset.woff2": "772a656a21072f0a6be53efc00343837a39ff9c2d8af14e304e3bb7ca7902fcd",
     "assets/fp8-efficiency.svg": "cfa484e5e75bcb599ebfb19b86f17d7f3dd364ba0eb7054eff14d2097a7a1e9f",
     "assets/fp8-framework.svg": "4b44766e46c753ee8e7d3531264bda318ee291873632c7c37ae2eaad731df8f2",
-    "assets/hardware-cost.svg": "93ffe7a2c39d240b211cffecc3623768cf462cec6756278e99df654379b4ee42",
     "assets/lr-design.svg": "6badfc1d964ef9821623326b9665d7e9f91dea2787d18edbe00ae08cc2bab5f9",
     "assets/muonh-efficiency.svg": "42dc6fc03641a67c8a5032903360f960eeafcca9bc849ef3d3aca6c1e2ddb653",
     "assets/muonh-elr.svg": "7d20349122aec4434e9ea92d2f0b795d115d0f15a59762ef57bf44dd6b464554",
@@ -62,12 +60,12 @@
     "assets/proxy-protocol.svg": "bf05ba78102f7f2cd2daa892fc9cfc188e14844de63d0b23a64fa7ca2fe9faac",
     "assets/sources/curriculum-vs-lr.pdf": "338b5169636bf278bce577fe142bdb836e7b97adc41ecd325aa8b0a4c2482c9e",
     "cma-setup.css": "7d98a7369eb9e46b1c122a526fb55e439dda96085649f4df8f798cb3da046733",
-    "cma-setup.js": "7bce0856c6b136db66e5d00aa06b50a43f9dd06f4a6c0606f5297612710c1249",
-    "data.js": "1c6a03dff3096b3a421cac9130154bb68ebcae448a2f48d8733345ec28b858d4",
+    "cma-setup.js": "c57ea20998749173adabad749409a2fedef1259db6fd8ef3cd4229d10bdcd777",
+    "data.js": "9e5e25aa418788153901843e512e02a05fd021f9a2a1e74cc7c13ff63ee581b2",
     "elr-explorer.css": "e4e6b1e2742d3c5c5471237456987df2571fb9e9ff6f201be4d1b002410ab4fd",
-    "elr-explorer.js": "b749d6cc7aab078ceff10cd166ff1d5172388111d837ba1c36037fbab4aa4030",
+    "elr-explorer.js": "f6fad206b225aced0eb3d6bacdf8800615851d7d489240d9872988232bc3696d",
     "homepage.css": "5911665e7fc7afa63b2e32280f4342a14dec4011a918ec64b836e37533258c1e",
-    "index.html": "03bfaebce7c760eca5e7955a596e9d667712708f3e7bcbdbbf12c3b083782ee1",
-    "styles.css": "5a7fcf7e608a88be584427047272817bb7ca299db8d7b7365c45609db0b32bea"
+    "index.html": "891f3b5d4b2ba31fdab1f190675fb85a4b48bb0f713220c2ea132ddcfad74d07",
+    "styles.css": "8bcaf07d5a2d73fdf3af605ca6b7eeff504d3210e8bdf9761828dedf3ec9479f"
   }
 }

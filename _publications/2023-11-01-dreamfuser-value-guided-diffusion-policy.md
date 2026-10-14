@@ -8,6 +8,9 @@ date: 2023-11-01
 year: 2023
 venue: "Preprint"
 authors: "Kairong Luo, Caiwei Xiao, Zhiao Huang, Zhan Ling, Yunhao Fang, Hao Su"
+co_first_authors:
+  - Kairong Luo
+  - Caiwei Xiao
 highlight: "Preprint (2023)"
 topic: "Reinforcement learning"
 summary: "A trajectory-based value optimization approach that combines diffusion policy learning with efficient Q-function learning for offline reinforcement learning."

@@ -79,6 +79,20 @@ def integrate_navigation(content, site_url):
     return content.replace("</head>", additions + "</head>", 1)
 
 
+def find_stale_imports(destination, previous_hashes, imported_names):
+    stale_files = []
+    for name in sorted(previous_hashes.keys() - imported_names):
+        target = destination / name
+        if not target.resolve().is_relative_to(destination.resolve()):
+            raise ValueError(f"Unsafe previous import path: {name}")
+        if not target.exists():
+            continue
+        if not target.is_file() or sha256(target.read_bytes()).hexdigest() != previous_hashes[name]:
+            raise ValueError(f"An obsolete imported file has local changes; review it before syncing: {name}")
+        stale_files.append(target)
+    return stale_files
+
+
 def main():
     parser = argparse.ArgumentParser(description="Import only the public runtime of the Puro-2B blog.")
     parser.add_argument("source", type=Path, help="Path to Prom-Technical-Report/blog")
@@ -96,6 +110,11 @@ def main():
     if not license_path.is_file():
         license_path = destination / "assets/fonts/NotoSansCJK-LICENSE.txt"
     imported["assets/fonts/NotoSansCJK-LICENSE.txt"] = license_path.read_bytes()
+    manifest_path = project / "_data" / "prom_blog_import.json"
+    previous_hashes = {}
+    if manifest_path.is_file():
+        previous_hashes = json.loads(manifest_path.read_text(encoding="utf-8")).get("imported_sha256", {})
+    stale_files = find_stale_imports(destination, previous_hashes, imported.keys())
     manifest = {
         "source_project": "Prom-Technical-Report/blog",
         "imported_on": date.today().isoformat(),
@@ -109,10 +128,16 @@ def main():
         temporary = target.with_name(target.name + ".import-tmp")
         temporary.write_bytes(content)
         temporary.replace(target)
-    (project / "_data" / "prom_blog_import.json").write_text(
+    for target in stale_files:
+        target.unlink()
+    temporary_manifest = manifest_path.with_name(manifest_path.name + ".import-tmp")
+    temporary_manifest.write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    temporary_manifest.replace(manifest_path)
     print(f"Imported {len(imported)} public files ({sum(map(len, imported.values())) / 1024 / 1024:.2f} MiB).")
+    if stale_files:
+        print(f"Removed {len(stale_files)} obsolete files from the previous import.")
     print("Article: /blog/prom-technical-report/")
     print("Original source is unchanged. Rebuild the homepage to refresh its preview.")
 
