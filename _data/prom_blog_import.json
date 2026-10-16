@@ -1,6 +1,6 @@
 {
   "source_project": "Prom-Technical-Report/blog",
-  "imported_on": "2026-10-14",
+  "imported_on": "2026-10-16",
   "article_url": "/blog/prom-technical-report/",
   "source_sha256": {
     "app.js": "af1b6e362929a4e640c4165c39c1be48cdfa7c16bdb2e30426edffd2a156ad12",
@@ -14,8 +14,8 @@
     "assets/fonts/LinuxBiolinum-Bold.woff2": "0ce3c59c443e7b62c53a2a9e1c60f63053cf7b53f735cbe3f87447e0a8dec4c0",
     "assets/fonts/LinuxBiolinum-LICENSE.txt": "08630501cdc4dd881ec4bf3945f066640dc1352659c62d4fe08a5e732b89bcb3",
     "assets/fonts/LinuxBiolinum-Regular.woff2": "96a3c45e6c1b8b0f144c520aea39829e6f3281c7bd818a8472a5bb3224733cfa",
-    "assets/fonts/NotoSansCJKsc-Bold-subset.woff2": "5f53a30c8aa84d162e33e54f15bcfdd46705c12b2225bb4197e90a29c7022a1f",
-    "assets/fonts/NotoSansCJKsc-subset.woff2": "772a656a21072f0a6be53efc00343837a39ff9c2d8af14e304e3bb7ca7902fcd",
+    "assets/fonts/NotoSansCJKsc-Bold-subset.woff2": "80d949bccdc0456126d3ee42feb0a9292244b85e96602f099d58aa490cd6aee8",
+    "assets/fonts/NotoSansCJKsc-subset.woff2": "e3a297a20384e70d42ca4bc72cebdac6a56bcce5f4657d753a716d98d20de9b3",
     "assets/fp8-efficiency.svg": "cfa484e5e75bcb599ebfb19b86f17d7f3dd364ba0eb7054eff14d2097a7a1e9f",
     "assets/fp8-framework.svg": "4b44766e46c753ee8e7d3531264bda318ee291873632c7c37ae2eaad731df8f2",
     "assets/lr-design.svg": "6badfc1d964ef9821623326b9665d7e9f91dea2787d18edbe00ae08cc2bab5f9",
@@ -28,11 +28,11 @@
     "assets/sources/curriculum-vs-lr.pdf": "338b5169636bf278bce577fe142bdb836e7b97adc41ecd325aa8b0a4c2482c9e",
     "cma-setup.css": "7d98a7369eb9e46b1c122a526fb55e439dda96085649f4df8f798cb3da046733",
     "cma-setup.js": "c57ea20998749173adabad749409a2fedef1259db6fd8ef3cd4229d10bdcd777",
-    "data.js": "9e5e25aa418788153901843e512e02a05fd021f9a2a1e74cc7c13ff63ee581b2",
+    "data.js": "7baa4232b7a87bf0eab0a2e28eb787521be67f8774b8e0aa6011d468554031fa",
     "elr-explorer.css": "e4e6b1e2742d3c5c5471237456987df2571fb9e9ff6f201be4d1b002410ab4fd",
     "elr-explorer.js": "f6fad206b225aced0eb3d6bacdf8800615851d7d489240d9872988232bc3696d",
-    "index.html": "c8fec11620b73195a10263e48d9c1e3281aeb6000ee69a89a103770a30f974ee",
-    "styles.css": "8bcaf07d5a2d73fdf3af605ca6b7eeff504d3210e8bdf9761828dedf3ec9479f"
+    "index.html": "85a3a68391ba5a41e7f7d667a38ddffec3c17884cdd6d97d13de899bcaf0e6be",
+    "styles.css": "4eb4da500689094d9ba6a64cab6fb31d7a865d961979243d49f9e8a57d2a7a8f"
   },
   "imported_sha256": {
     "app.js": "af1b6e362929a4e640c4165c39c1be48cdfa7c16bdb2e30426edffd2a156ad12",
@@ -47,8 +47,8 @@
     "assets/fonts/LinuxBiolinum-LICENSE.txt": "08630501cdc4dd881ec4bf3945f066640dc1352659c62d4fe08a5e732b89bcb3",
     "assets/fonts/LinuxBiolinum-Regular.woff2": "96a3c45e6c1b8b0f144c520aea39829e6f3281c7bd818a8472a5bb3224733cfa",
     "assets/fonts/NotoSansCJK-LICENSE.txt": "5bb218343ded506b258d86186d460fc47d9b6b28f0e642cf32676c396b7df763",
-    "assets/fonts/NotoSansCJKsc-Bold-subset.woff2": "5f53a30c8aa84d162e33e54f15bcfdd46705c12b2225bb4197e90a29c7022a1f",
-    "assets/fonts/NotoSansCJKsc-subset.woff2": "772a656a21072f0a6be53efc00343837a39ff9c2d8af14e304e3bb7ca7902fcd",
+    "assets/fonts/NotoSansCJKsc-Bold-subset.woff2": "80d949bccdc0456126d3ee42feb0a9292244b85e96602f099d58aa490cd6aee8",
+    "assets/fonts/NotoSansCJKsc-subset.woff2": "e3a297a20384e70d42ca4bc72cebdac6a56bcce5f4657d753a716d98d20de9b3",
     "assets/fp8-efficiency.svg": "cfa484e5e75bcb599ebfb19b86f17d7f3dd364ba0eb7054eff14d2097a7a1e9f",
     "assets/fp8-framework.svg": "4b44766e46c753ee8e7d3531264bda318ee291873632c7c37ae2eaad731df8f2",
     "assets/lr-design.svg": "6badfc1d964ef9821623326b9665d7e9f91dea2787d18edbe00ae08cc2bab5f9",
@@ -61,11 +61,11 @@
     "assets/sources/curriculum-vs-lr.pdf": "338b5169636bf278bce577fe142bdb836e7b97adc41ecd325aa8b0a4c2482c9e",
     "cma-setup.css": "7d98a7369eb9e46b1c122a526fb55e439dda96085649f4df8f798cb3da046733",
     "cma-setup.js": "c57ea20998749173adabad749409a2fedef1259db6fd8ef3cd4229d10bdcd777",
-    "data.js": "9e5e25aa418788153901843e512e02a05fd021f9a2a1e74cc7c13ff63ee581b2",
+    "data.js": "7baa4232b7a87bf0eab0a2e28eb787521be67f8774b8e0aa6011d468554031fa",
     "elr-explorer.css": "e4e6b1e2742d3c5c5471237456987df2571fb9e9ff6f201be4d1b002410ab4fd",
     "elr-explorer.js": "f6fad206b225aced0eb3d6bacdf8800615851d7d489240d9872988232bc3696d",
     "homepage.css": "5911665e7fc7afa63b2e32280f4342a14dec4011a918ec64b836e37533258c1e",
-    "index.html": "891f3b5d4b2ba31fdab1f190675fb85a4b48bb0f713220c2ea132ddcfad74d07",
-    "styles.css": "8bcaf07d5a2d73fdf3af605ca6b7eeff504d3210e8bdf9761828dedf3ec9479f"
+    "index.html": "76f1680fd77677e08b06ea97a15514824e3e0db59826b6bcf11c790a5f82ed10",
+    "styles.css": "4eb4da500689094d9ba6a64cab6fb31d7a865d961979243d49f9e8a57d2a7a8f"
   }
 }
