@@ -6,6 +6,7 @@
     <meta name="robots" content="noindex">
     <title>{{ page.title | escape }}</title>
     <link rel="canonical" href="{{ page.article_url | absolute_url }}">
+    {% include head/rybbit.html %}
     <meta http-equiv="refresh" content="0; url={{ page.article_url | relative_url }}">
   </head>
   <body>

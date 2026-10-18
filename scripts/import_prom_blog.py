@@ -68,11 +68,13 @@ def integrate_navigation(content, site_url):
     )
     content = content[:title.start()] + navigation + content[title.end():]
     canonical = escape(site_url.rstrip("/") + "/blog/prom-technical-report/", quote=True)
+    analytics_path = Path(__file__).resolve().parents[1] / "_includes" / "head" / "rybbit.html"
     additions = (
         '  <link rel="stylesheet" href="homepage.css">\n'
         '  <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">\n'
         f'  <link rel="canonical" href="{canonical}">\n'
         f'  <meta property="og:url" content="{canonical}">\n'
+        f'  {analytics_path.read_text(encoding="utf-8").strip()}\n'
     )
     if content.count("</head>") != 1:
         raise ValueError("The source blog must contain exactly one document head.")

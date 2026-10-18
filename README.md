@@ -16,7 +16,7 @@ The former Markdown-to-JSON converter refuses to overwrite the data-backed CV. C
 
 ## Puro-2B blog
 
-The Blog navigation and homepage entry link to `/blog/prom-technical-report/`. This self-contained copy preserves the original Chinese/English article, figures, fonts, and interactive scripts. Only its navigation and canonical URL are adapted to this website. `/blog/puro-2b/` redirects to the full article.
+The Blog navigation and homepage entry link to `/blog/prom-technical-report/`. This self-contained copy preserves the original Chinese/English article, figures, fonts, and interactive scripts. Its navigation, canonical URL, and analytics are integrated with this website. `/blog/puro-2b/` redirects to the full article.
 
 This is a manual snapshot, not an iframe, submodule, or live connection. Editing or pushing the source repository does **not** update this website automatically; there is no sync watcher or cross-repository workflow. The importer reads the generated HTML and assets in the local source checkout, including uncommitted changes, rather than fetching a remote branch.
 
