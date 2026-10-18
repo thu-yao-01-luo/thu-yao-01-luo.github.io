@@ -2,6 +2,40 @@
 
 The main pages use a lightweight Jekyll layout; the original Academic Pages documentation is retained below.
 
+## Build and deployment
+
+Use Ruby from `.ruby-version` and Bundler 2.6.9 for local and Cloudflare builds. Keep `Gemfile.lock` in version control so each environment installs the same dependency versions. The `github-pages` gem stays pinned to version 232, which supplies GitHub Pages-compatible Jekyll 3.10.0 and plugins; do not upgrade Jekyll independently.
+
+```bash
+gem install bundler --version 2.6.9 --no-document
+bash scripts/build.sh
+```
+
+The build script installs missing locked dependencies, sets `JEKYLL_ENV=production` unless overridden, and runs `bundle exec jekyll build`. Always start Jekyll through Bundler: running bare `jekyll build` can activate Ruby's default `json` gem before the locked version is selected, causing the "already activated json" error. Do not pin JSON to a host's default version or delete the lockfile to work around this.
+
+### Cloudflare Pages
+
+Configure the Pages project with these settings:
+
+| Setting | Value |
+| --- | --- |
+| Production branch | `master` |
+| Root directory | Repository root |
+| Build command | `bash scripts/build.sh` |
+| Build output directory | `_site` |
+
+The checked-in `.ruby-version` selects Ruby 3.4.4. Remove any conflicting `RUBY_VERSION` environment override, or set it to the same version, for both production and preview builds. If a previous build cached incompatible dependencies, clear the Pages build cache once and retry with the new command. No npm build is required for the checked-in site assets.
+
+### GitHub Pages
+
+The native GitHub Pages Jekyll build remains supported; keep the existing branch/root publishing configuration. To check its safe-mode restrictions locally:
+
+```bash
+bash scripts/build.sh --safe
+```
+
+`.github/workflows/build.yml` checks both GitHub Pages' Ruby 3.3.4 with `--safe` and Cloudflare Pages' Ruby 3.4.4 with the normal build command. These are build checks only, not additional deployment jobs. Resolve intentional dependency updates with the older Ruby version in this matrix, keep the resulting lockfile, and verify both builds before publishing.
+
 ## Content maintenance
 
 - `_pages/about.md`: short biography and homepage structure.
@@ -91,7 +125,7 @@ When you are initially working on your website, it is very useful to be able to 
     brew install node
     gem install bundler
     ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
+1. Use the Ruby and Bundler versions in the build instructions above, then run `bundle install` to install the locked dependencies. Keep `Gemfile.lock`; do not delete it when troubleshooting.
 
     If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
     Install Gems Locally (Recommended):
@@ -100,8 +134,7 @@ When you are initially working on your website, it is very useful to be able to 
     ```
     then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and open `.gitignore` then add `vendor` inside it.
 
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
+1. Run `bundle exec jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000`; the local server will automatically rebuild and refresh the pages on change. The `bundle exec` prefix is required to select the locked dependencies before Jekyll loads.
 
 If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
 

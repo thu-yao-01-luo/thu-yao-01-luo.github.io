@@ -173,6 +173,7 @@ exclude:
   - config
   - Dockerfile
   - Gemfile
+  - Gemfile.lock
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
@@ -182,6 +183,7 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  - scripts/build.sh
   - tmp
   - vendor
 keep_files:
