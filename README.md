@@ -41,8 +41,8 @@ bash scripts/build.sh --safe
 - `_pages/about.md`: short biography and homepage structure.
 - `_publications/`: canonical publication records, including `year`, `summary` (one sentence), `distinction`, and `featured_order`.
 - Add `co_first_authors` and `corresponding_authors` lists using names exactly as written in `authors`; the shared author component renders `*` and `†` consistently on the homepage, publication pages, and CV. Keep citation author strings unmarked.
-- `_data/cv.json`: education, honors, teaching, service, and the content-update date. Both CV routes read this file; publication lists read the collection directly.
-- `_posts/`: blog metadata and future posts. The old template examples are unpublished.
+- `_data/cv.json`: education, honors, teaching, service, and the content-update date. Both CV routes read this file; publication lists read the collection directly. Service entries with `selected: true` also appear on the homepage, and an optional `url` links their organization.
+- `_posts/`: blog metadata and future posts. Use `alternate_versions` entries with `label` and `url` to add other versions alongside the primary `article_url`; these links are preserved when importing the blog. The old template examples are unpublished.
 - `assets/css/academic.css` and `_layouts/academic.html`: shared appearance and navigation.
 - `images/research/FIGURE_SOURCES.md`: provenance of the research figures.
 

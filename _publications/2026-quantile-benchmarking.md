@@ -9,8 +9,8 @@ authors: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen
 co_first_authors:
   - Kairong Luo
   - Zhenbo Sun
-highlight: "NeurIPS 2026 Spotlight"
-distinction: "Spotlight"
+highlight: "NeurIPS 2026 Spotlight (Top 1.3%)"
+distinction: "Spotlight (Top 1.3%)"
 topic: "Data quality"
 excerpt: "Quantile benchmarking compares heterogeneous web corpora and guides data mixtures for open LLM pretraining."
 summary: "Comparing web corpora across quality quantiles helps choose better data mixtures for open LLM pretraining."
@@ -36,7 +36,7 @@ contribution: "Co-first author, listed first."
 citation: "Kairong Luo, Zhenbo Sun, Xinyu Shi, Shengqi Chen, Bowen Yu, Yunyi Chen, Chenyi Dang, Hengtao Tao, Hui Wang, Fangming Liu, Kaifeng Lyu, and Wenguang Chen. (2026). &quot;Open LLM Pretraining Guided by Quantile Benchmarking Heterogeneous Web Corpora.&quot; NeurIPS 2026 Spotlight."
 ---
 
-**NeurIPS 2026 Spotlight.** Previously titled *Quantile Benchmarking Heterogeneous Web Corpora in Open LLM Pretraining*.
+**NeurIPS 2026 Spotlight (Top 1.3%).** Previously titled *Quantile Benchmarking Heterogeneous Web Corpora in Open LLM Pretraining*.
 
 Web corpora contain a wide range of data quality, making corpus-level comparisons difficult to interpret. Quantile benchmarking compares their training effectiveness across quality levels and uses the results to guide data selection and mixing.
 

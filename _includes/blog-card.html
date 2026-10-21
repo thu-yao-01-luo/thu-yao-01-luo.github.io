@@ -9,6 +9,11 @@
     <h3 class="blog-card__title"><a href="{{ article_url | relative_url }}">{{ entry.title }}</a></h3>
     {% if entry.title_zh %}<p class="blog-card__subtitle" lang="zh-Hans">{{ entry.title_zh }}</p>{% endif %}
     <p class="blog-card__summary">{{ entry.summary }}</p>
-    <a class="blog-card__link" href="{{ article_url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+    <div class="blog-card__links">
+      <a class="blog-card__link" href="{{ article_url | relative_url }}">Read on this site <span aria-hidden="true">→</span></a>
+      {% for version in entry.alternate_versions %}
+        <a class="blog-card__link" href="{{ version.url | escape }}" target="_blank" rel="noopener noreferrer">{{ version.label | escape }} <span aria-hidden="true">↗</span></a>
+      {% endfor %}
+    </div>
   </div>
 </article>

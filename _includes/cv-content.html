@@ -50,7 +50,7 @@
   {% for position in site.data.cv.service %}
     <div class="cv-entry">
       <div class="cv-entry__date">{{ position.dates }}</div>
-      <div><h3>{{ position.role }}</h3><p class="cv-entry__detail">{{ position.organization }}</p>{% if position.summary != '' %}<p class="cv-entry__detail">{{ position.summary }}</p>{% endif %}</div>
+      <div><h3>{{ position.role }}</h3><p class="cv-entry__detail">{% if position.url %}<a href="{{ position.url | escape }}" target="_blank" rel="noopener noreferrer">{{ position.organization | escape }}</a>{% else %}{{ position.organization }}{% endif %}</p>{% if position.summary != '' %}<p class="cv-entry__detail">{{ position.summary }}</p>{% endif %}</div>
     </div>
   {% endfor %}
 </section>

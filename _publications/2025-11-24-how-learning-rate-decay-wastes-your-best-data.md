@@ -13,7 +13,7 @@ corresponding_authors:
   - Wenguang Chen
 highlight: "Oral Presentation (Top 1.2%), ICLR 2026"
 summary: "Learning-rate decay weakens late-arriving high-quality data, while moderate decay and curriculum model averaging recover its training benefits."
-distinction: "Oral"
+distinction: "Oral (Top 1.2%)"
 topic: "Training dynamics"
 links:
   - label: "Paper"

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14",
+  "lastUpdated": "2026-10-21",
   "basics": {
     "name": "Kairong Luo",
     "email": "luokr2002@outlook.com",
@@ -167,6 +167,14 @@
     }
   ],
   "service": [
+    {
+      "role": "Contributor",
+      "organization": "training.farm",
+      "url": "https://training.farm/blog/",
+      "dates": "Present",
+      "summary": "",
+      "selected": true
+    },
     {
       "role": "Class Advisor, Yao Class 51",
       "organization": "Institute for Interdisciplinary Information Sciences, Tsinghua University",

@@ -60,3 +60,16 @@ redirect_from:
   {% assign selected_awards = site.data.cv.awards | where: 'selected', true | sort: 'selected_order' %}
   {% include honors-list.html awards=selected_awards %}
 </section>
+
+<section id="service" class="service-section" aria-labelledby="service-title">
+  <div class="section-heading">
+    <h2 id="service-title">Service</h2>
+    <a href="{{ '/cv/#service' | relative_url }}">Full service history <span aria-hidden="true">→</span></a>
+  </div>
+  {% assign selected_service = site.data.cv.service | where: 'selected', true %}
+  <ul class="service-list">
+    {% for position in selected_service %}
+      <li><strong>{{ position.role | escape }}</strong> · {% if position.url %}<a href="{{ position.url | escape }}" target="_blank" rel="noopener noreferrer">{{ position.organization | escape }}</a>{% else %}{{ position.organization | escape }}{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
